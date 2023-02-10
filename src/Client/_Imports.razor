@@ -1,0 +1,62 @@
+﻿@*Libraries*@
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Identity;
+@using MudBlazor
+@using Blazored.LocalStorage;
+@using Blazored.FluentValidation
+
+@*Client Services*@
+@using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Account
+@using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Authentication
+@using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Roles
+@using DreamWeddsManager.Client.Infrastructure.Managers.Identity.RoleClaims
+@using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Users
+@using DreamWeddsManager.Client.Infrastructure.Managers.Preferences
+@using DreamWeddsManager.Client.Infrastructure.Managers.Interceptors
+@using DreamWeddsManager.Client.Infrastructure.Managers.Catalog.Product
+@using DreamWeddsManager.Client.Infrastructure.Managers.Catalog.Brand
+@using DreamWeddsManager.Client.Infrastructure.Managers.Dashboard
+@using DreamWeddsManager.Client.Infrastructure.Managers.Communication
+@using DreamWeddsManager.Client.Infrastructure.Managers.Audit
+@using DreamWeddsManager.Client.Infrastructure.Managers.Misc.Document
+@using DreamWeddsManager.Client.Infrastructure.Managers.Misc.DocumentType
+
+@*Shared Libraries*@
+@using DreamWeddsManager.Shared.Constants.Permission
+@using DreamWeddsManager.Client.Shared.Components
+
+@using DreamWeddsManager.Client
+@using DreamWeddsManager.Client.Shared
+@using DreamWeddsManager.Client.Shared.Dialogs
+@using DreamWeddsManager.Client.Infrastructure.Settings
+
+@using DreamWeddsManager.Application.Requests.Identity
+
+@using DreamWeddsManager.Client.Pages.Authentication
+
+@using DreamWeddsManager.Client.Infrastructure.Authentication
+@using DreamWeddsManager.Client.Extensions
+
+@attribute [Authorize]
+@inject IAuthenticationManager _authenticationManager
+@inject IAccountManager _accountManager
+@inject NavigationManager _navigationManager
+@inject BlazorHeroStateProvider _stateProvider
+@inject IAuthorizationService _authorizationService
+@inject ISnackbar _snackBar
+@inject IDialogService _dialogService
+@inject HttpClient _httpClient
+@inject IHttpInterceptorManager _interceptor
+@inject ClientPreferenceManager _clientPreferenceManager
+@inject IUserManager _userManager
+@inject ILocalStorageService _localStorage;
+@inject IJSRuntime _jsRuntime;
