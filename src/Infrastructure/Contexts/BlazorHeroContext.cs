@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using DreamWeddsManager.Domain.Entities.ExtendedAttributes;
 using DreamWeddsManager.Domain.Entities.Misc;
+using DreamWeddsManager.Domain.Entities.DreamWedds;
 
 namespace DreamWeddsManager.Infrastructure.Contexts
 {
@@ -31,6 +32,26 @@ namespace DreamWeddsManager.Infrastructure.Contexts
         public DbSet<Document> Documents { get; set; }
         public DbSet<DocumentType> DocumentTypes { get; set; }
         public DbSet<DocumentExtendedAttribute> DocumentExtendedAttributes { get; set; }
+
+        #region Region | DreamWedds database entities
+        public DbSet<BrideAndMaid> BrideAndMaid { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Faq> Faqs { get; set; }
+        public DbSet<GroomAndMan> GroomAndMan { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+        public DbSet<OrderMaster> OrderMaster { get; set; }
+        public DbSet<RsvpDetail> RsvpDetail { get; set; }
+        public DbSet<SubscriptionMaster> SubscriptionMaster { get; set; }
+        public DbSet<TemplateImage> TemplateImage { get; set; }
+        public DbSet<WeddingTemplate> TemplateMaster { get; set; }
+        public DbSet<TemplateMergeField> TemplateMergeField { get; set; }
+        public DbSet<TimeLine> TimeLine { get; set; }
+        public DbSet<UserWeddingSubscription> UserWeddingSubscription { get; set; }
+        public DbSet<Venue> Venue { get; set; }
+        public DbSet<Wedding> Wedding { get; set; }
+        public DbSet<WeddingEvent> WeddingEvent { get; set; }
+        public DbSet<WeddingImages> WeddingImages { get; set; }
+        #endregion 
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
         {
