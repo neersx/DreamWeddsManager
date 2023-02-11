@@ -7,11 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using DreamWeddsManager.Domain.Contracts;
+using System;
+using System.Collections.Generic;
+
 namespace DreamWeddsManager.Domain.Entities.DreamWedds
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class OrderDetail : AuditableEntity<int>
     {
         public Nullable<int> Discount { get; set; }
