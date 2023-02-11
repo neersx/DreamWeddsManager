@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamWeddsManager.Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1D491AAE-7A45-4B6B-9E3B-F8F3F0EFDED5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FFBDEDF1-17E2-4F72-AE03-C99B44D8BFCA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{FFBDEDF1-17E2-4F72-AE03-C99B44D8BFCA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamWeddsManager.Shared", "src\Shared\DreamWeddsManager.Shared.csproj", "{D22763DC-33FD-453E-AF00-A2028689F978}"
 EndProject
