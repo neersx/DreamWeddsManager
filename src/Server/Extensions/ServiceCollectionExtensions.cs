@@ -45,6 +45,7 @@ using DreamWeddsManager.Application.Serialization.JsonConverters;
 using DreamWeddsManager.Application.Serialization.Options;
 using DreamWeddsManager.Application.Serialization.Serializers;
 using DreamWeddsManager.Application.Serialization.Settings;
+using DreamWeddsManager.Application.Interfaces;
 
 namespace DreamWeddsManager.Server.Extensions
 {
@@ -184,6 +185,7 @@ namespace DreamWeddsManager.Server.Extensions
         {
             services.AddHttpContextAccessor();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddTransient<IBlazorHeroContext>(provider => provider.GetService<BlazorHeroContext>());
             return services;
         }
 

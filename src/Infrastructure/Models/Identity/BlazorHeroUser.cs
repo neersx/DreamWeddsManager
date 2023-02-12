@@ -30,6 +30,10 @@ namespace DreamWeddsManager.Infrastructure.Models.Identity
         public bool IsActive { get; set; }
         public string RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
+        [NotMapped]
+        public string Site { get; set; }
+        [NotMapped]
+        public string DisplayName { get; set; }
         public virtual ICollection<ChatHistory<BlazorHeroUser>> ChatHistoryFromUsers { get; set; }
         public virtual ICollection<ChatHistory<BlazorHeroUser>> ChatHistoryToUsers { get; set; }
 
@@ -39,4 +43,6 @@ namespace DreamWeddsManager.Infrastructure.Models.Identity
             ChatHistoryToUsers = new HashSet<ChatHistory<BlazorHeroUser>>();
         }
     }
+
+    public class ApplicationUser : BlazorHeroUser { }
 }

@@ -11,27 +11,33 @@ using System.Threading.Tasks;
 using DreamWeddsManager.Domain.Entities.ExtendedAttributes;
 using DreamWeddsManager.Domain.Entities.Misc;
 using DreamWeddsManager.Domain.Entities.DreamWedds;
+using DreamWeddsManager.Application.Interfaces;
+using DreamWeddsManager.Domain.Entities;
 
 namespace DreamWeddsManager.Infrastructure.Contexts
 {
-    public class BlazorHeroContext : AuditableContext
+    public class BlazorHeroContext : AuditableContext, IBlazorHeroContext
     {
         private readonly ICurrentUserService _currentUserService;
         private readonly IDateTimeService _dateTimeService;
 
-        public BlazorHeroContext(DbContextOptions<BlazorHeroContext> options, ICurrentUserService currentUserService, IDateTimeService dateTimeService)
+        public BlazorHeroContext(DbContextOptions<BlazorHeroContext> options, 
+            ICurrentUserService currentUserService, 
+            IDateTimeService dateTimeService)
             : base(options)
         {
             _currentUserService = currentUserService;
             _dateTimeService = dateTimeService;
         }
 
-        public DbSet<ChatHistory<BlazorHeroUser>> ChatHistories { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Brand> Brands { get; set; }
+        public DbSet<KeyValue> KeyValues { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<DocumentType> DocumentTypes { get; set; }
         public DbSet<DocumentExtendedAttribute> DocumentExtendedAttributes { get; set; }
+        public DbSet<ChatHistory<BlazorHeroUser>> ChatHistories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+
 
         #region Region | DreamWedds database entities
         public DbSet<BrideAndMaid> BrideAndMaid { get; set; }
@@ -51,7 +57,8 @@ namespace DreamWeddsManager.Infrastructure.Contexts
         public DbSet<Wedding> Wedding { get; set; }
         public DbSet<WeddingEvent> WeddingEvent { get; set; }
         public DbSet<WeddingImages> WeddingImages { get; set; }
-        #endregion 
+      
+        #endregion
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
         {
