@@ -187,7 +187,7 @@ namespace SmartAdmin.WebUI.Extensions
         {
             services.AddHttpContextAccessor();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
-            services.AddScoped<IBlazorHeroContext>(provider => provider.GetService<BlazorHeroContext>());
+            services.AddTransient<IBlazorHeroContext>(provider => provider.GetService<BlazorHeroContext>());
             //services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }
