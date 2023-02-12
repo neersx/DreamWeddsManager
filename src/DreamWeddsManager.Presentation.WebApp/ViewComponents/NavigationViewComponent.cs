@@ -1,3 +1,6 @@
+using DreamWeddsManager.Application.Interfaces.Services;
+using DreamWeddsManager.Application.Interfaces.Services.Identity;
+using DreamWeddsManager.Infrastructure.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SmartAdmin.WebUI.Models;
@@ -6,21 +9,20 @@ namespace SmartAdmin.WebUI.ViewComponents
 {
     public class NavigationViewComponent : ViewComponent
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<BlazorHeroUser> _userManager;
         private readonly ICurrentUserService _currentUserService;
-        private readonly IIdentityService _identityService;
+        private readonly ITokenService _identityService;
         private readonly string[] _roles;
         public NavigationViewComponent(
-            UserManager<ApplicationUser> userManager,
+            UserManager<BlazorHeroUser> userManager,
             ICurrentUserService currentUserService,
-            IIdentityService  identityService
+            ITokenService  identityService
             )
         {
             _userManager = userManager;
             _currentUserService = currentUserService;
             _identityService = identityService;
             var userId = _currentUserService.UserId;
-            _roles = _userManager.Users.Where(x=>x.Id== userId).Include(x=>x.UserRoles).ThenInclude(x=>x.Role).SelectMany(x=>x.UserRoles).Select(x=>x.Role.Name).ToArray();
         }
         public IViewComponentResult Invoke()
         {

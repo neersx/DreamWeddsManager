@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Security.Claims;
+using DreamWeddsManager.Infrastructure.Contexts;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Identity;
 using SmartAdmin.WebUI.Models;
@@ -36,7 +37,7 @@ namespace SmartAdmin.WebUI.Extensions
         public static bool IsRelatedTo(this ListItem item, string pageName) => item?.Type == ItemType.Parent && item?.Href?.ToPage() == pageName?.ToLower();
 
         [DebuggerStepThrough]
-        public static async Task<IdentityResult> UpdateAsync<T>(this ApplicationDbContext context, T model, string id) where T : class
+        public static async Task<IdentityResult> UpdateAsync<T>(this BlazorHeroContext context, T model, string id) where T : class
         {
             var entity = await context.FindAsync<T>(id);
 
@@ -53,7 +54,7 @@ namespace SmartAdmin.WebUI.Extensions
         }
 
         [DebuggerStepThrough]
-        public static async Task<IdentityResult> DeleteAsync<T>(this ApplicationDbContext context, string id) where T : class
+        public static async Task<IdentityResult> DeleteAsync<T>(this BlazorHeroContext context, string id) where T : class
         {
             var entity = await context.FindAsync<T>(id);
 

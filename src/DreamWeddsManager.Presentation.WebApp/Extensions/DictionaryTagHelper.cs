@@ -2,6 +2,8 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using MediatR;
+using DreamWeddsManager.Application.KeyValues.Queries.ByName;
 
 namespace SmartAdmin.WebUI.Extensions
 {
