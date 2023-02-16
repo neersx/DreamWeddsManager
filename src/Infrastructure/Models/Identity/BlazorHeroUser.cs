@@ -36,6 +36,7 @@ namespace DreamWeddsManager.Infrastructure.Models.Identity
         public string DisplayName { get; set; }
         public virtual ICollection<ChatHistory<BlazorHeroUser>> ChatHistoryFromUsers { get; set; }
         public virtual ICollection<ChatHistory<BlazorHeroUser>> ChatHistoryToUsers { get; set; }
+        public virtual ICollection<BlazorHeroRole> UserRoles { get; set; }
 
         public BlazorHeroUser()
         {
