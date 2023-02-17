@@ -9016,6 +9016,10 @@ fieldset:disabled .btn {
   min-height: 55vh !important;
 }
 
+.min-vh-60 {
+  min-height: 60vh !important;
+}
+
 .min-vh-65 {
   min-height: 65vh !important;
 }
