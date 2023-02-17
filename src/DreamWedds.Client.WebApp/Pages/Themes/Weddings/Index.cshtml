@@ -1,0 +1,169 @@
+﻿@page
+@model DreamWedds.Client.WebApp.Pages.Themes.Weddings.IndexModel
+@{
+    ViewData["Title"] = "Chat";
+    ViewData["PageName"] = "page_chat";
+    ViewData["Heading"] = "<i class='subheader-icon fal fa-plus-circle'></i>  Chat";
+    ViewData["PageDescription"] = "A robust and simple chat component that is flexible, intuitive, easy to use and customize";
+    ViewData["Category1"] = "Page Views";
+}
+
+<div class="page-header min-vh-50" style="background-image: url('https://dreamwedds.com/Templates/Wedding/Bashori/images/banner.jpg')">
+    <span class="mask bg-gradient-dark opacity-2"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 text-start pt-3">
+                <h1 class="text-white">Wedding Themes<span class="text-white" id="typed"></span></h1>
+                <p class="lead text-white text-start pe-5">The time is now for it to be okay to be great. People in this world shun people for being great. </p>
+                <br>
+
+            </div>
+        </div>
+    </div>
+    <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+            </defs>
+            <g class="moving-waves">
+                <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40"></use>
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
+                <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
+                <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,1"></use>
+            </g>
+        </svg>
+    </div>
+</div>
+
+<section class="py-6 bg-gray-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-lg-0 mb-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dreamwedds.com/Templates/Wedding/Bashori/images/banner.jpg">
+                    <div class="position-relative overflow-hidden" style="height:50px;margin-top:-50px;">
+                        <div class="position-absolute w-100 top-0 z-index-1">
+                            <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+                                <defs>
+                                    <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                                </defs>
+                                <g class="moving-waves">
+                                    <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(255,255,255,0.30"></use>
+                                    <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                                    <use xlink:href="#card-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
+                                    <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                                    <use xlink:href="#card-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
+                                    <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <span class="text-gradient text-warning text-uppercase text-xs font-weight-bold my-2">Couples • </span>
+                        <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">CountDown • </span>
+                        <span class="text-gradient text-success text-uppercase text-xs font-weight-bold my-2">Slider • </span>
+                        <span class="text-gradient text-info text-uppercase text-xs font-weight-bold my-2">Timeine • </span>
+                        <span class="text-gradient text-danger text-uppercase text-xs font-weight-bold my-2">Map • </span>
+                        <span class="text-gradient text-warning text-uppercase text-xs font-weight-bold my-2">RSVP</span>
+                        <br>
+                        <h4>Soft UI Design System</h4>
+                        <p>
+                            One of the most beautiful and complex UI Kits built by the team behind Creative Tim. That"s pretty impressive.
+                        </p>
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-4 col-4">
+
+                                <button type="button" class="btn btn-outline-primary">
+                                    <span class="btn-inner--icon"><i class="ni ni-button-play"></i></span>
+                                    <span class="btn-inner--text">Live Demo</span>
+                                </button>
+                            </div>
+                            <div class="col-lg-4 col-4">
+                                <h5 class="text-info mb-0">80+</h5>
+                                <small>Purchase</small>
+                            </div>
+                            <div class="col-lg-4 col-4">
+
+                                <button type="button" class="btn bg-gradient-primary">BUY THEME</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-lg-0 mb-4">
+                <div class="card">
+                    <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+                        <a href="javascript:;" class="d-block">
+                            <img src="../../assets/img/blog7-2.jpg" class="img-fluid border-radius-lg">
+                        </a>
+                    </div>
+
+                    <div class="card-body pt-3">
+                        <span class="text-gradient text-info text-uppercase text-xs font-weight-bold my-2">Office</span>
+                        <a href="javascript:;" class="text-darker card-title h5 d-block">
+                            Really Housekeeping
+                        </a>
+                        <p class="card-description mb-4">
+                            Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
+                        </p>
+                        <div class="author align-items-center">
+                            <img src="../../assets/img/ivana-square.jpg" alt="..." class="avatar shadow">
+                            <div class="name ps-3">
+                                <span>Chriss Smahos</span>
+                                <div class="stats">
+                                    <small>Posted 2 min ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-lg-0 mb-4">
+                <div class="card">
+                    <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+                        <a href="javascript:;" class="d-block">
+                            <img src="../../assets/img/blog7-3.jpg" class="img-fluid border-radius-lg">
+                        </a>
+                    </div>
+
+                    <div class="card-body pt-3">
+                        <span class="text-gradient text-warning text-uppercase text-xs font-weight-bold my-2">Hub</span>
+                        <a href="javascript:;" class="text-darker card-title h5 d-block">
+                            Shared Coworking
+                        </a>
+                        <p class="card-description mb-4">
+                            Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
+                        </p>
+                        <div class="author align-items-center">
+                            <img src="../../assets/img/marie.jpg" alt="..." class="avatar shadow">
+                            <div class="name ps-3">
+                                <span>Elijah Miller</span>
+                                <div class="stats">
+                                    <small>Posted now</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <!-- Mandatory init script -->
+    <script>
+        if (document.getElementById("typed")) {
+            var typed = new Typed("#typed", {
+                stringsElement: "#typed-strings",
+                typeSpeed: 70,
+                backSpeed: 50,
+                backDelay: 200,
+                startDelay: 500,
+                loop: true
+            });
+        }
+    </script>
+}

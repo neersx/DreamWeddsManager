@@ -49,7 +49,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamWeddsManager.Client.WebApp", "src\DreamWeddsManager.Client.WebApp\DreamWeddsManager.Client.WebApp.csproj", "{C0797657-452D-4FA4-8F25-53E1933332DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamWedds.Client.WebApp", "src\DreamWedds.Client.WebApp\DreamWedds.Client.WebApp.csproj", "{4D34BD51-5F20-4CA2-A43E-E0BEBC23342C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamWedds.Client.WebApp", "src\DreamWedds.Client.WebApp\DreamWedds.Client.WebApp.csproj", "{4D34BD51-5F20-4CA2-A43E-E0BEBC23342C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
