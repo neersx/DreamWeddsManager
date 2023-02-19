@@ -92,7 +92,7 @@
             settings.start = settings.now;
             settings.end = settings.now;
         }
-//console.log( "1" + new Date(settings.start));
+
         if (typeof callback == 'function') { // make sure the callback is a function
             callbackFunction = callback;
         }
@@ -117,7 +117,7 @@
         layerSeconds.draw();
         layerMinutes.draw();
         layerHours.draw();
-        //layerDays.draw();
+        layerDays.draw();
     }
 
     function convertToDeg(degree) {
@@ -125,7 +125,6 @@
     }
 
     function dispatchTimer() {
-        
         timer = {
             total: Math.floor((settings.end - settings.start) / 86400),
             days: Math.floor((settings.end - settings.now ) / 86400),
