@@ -1,0 +1,33 @@
+/******** Neela updates *********/
+
+=====================================================================
+version 1.0.1 - June 2022
+
+Fixes:
+	1. Characters encoding on submitted RSVP's
+	2. Small CSS fixes
+	3. Improved user experience in navigation
+
+
+Files Updated:
+	1. contact.php
+	2. style.css / style.scss (css folder)
+	3. scripts.js (js folder)
+
+
+Notes: 
+	1. Use the updated contact.php file to replace the existing one.
+	1.1. Remember to apply the changes you might have done in your old contact.php file to this new contact.php file (like $emailto and $subject variables)
+	
+	2. Use the updated style.css / style.scss files to replace the existing ones in the css folder.
+	2.1 Note that it's recommended to do your customization in a different css file. If you've done changes to these files, you need apply it to the new ones.
+
+	3. Use the updated scripts.js file to replace the existing one in the ja folder.
+	3.1. Remember to apply the changes you might have done in your old scripts.js file to this new scripts.js file.
+
+
+
+=====================================================================
+version 1.0.0 - October 2021
+
+- Inicial Release
