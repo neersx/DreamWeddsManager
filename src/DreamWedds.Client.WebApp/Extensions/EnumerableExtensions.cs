@@ -19,12 +19,7 @@ namespace DreamWedds.Client.WebApp.Extensions
 
         private static JsonSerializerOptions SerializerSettings(bool indented = true)
         {
-            var options = new JsonSerializerOptions
-            {
-                IgnoreNullValues = true,
-                WriteIndented = indented,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
+            var options = new JsonSerializerOptions { IgnoreNullValues = true, WriteIndented = indented, PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
             options.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
 
