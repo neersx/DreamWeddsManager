@@ -25,9 +25,4 @@ namespace DreamWeddsManager.Infrastructure.Models.Identity
             Description = roleDescription;
         }
     }
-
-    public class ApplicationRole : BlazorHeroRole
-    {
-
-    }
 }

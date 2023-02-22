@@ -44,6 +44,4 @@ namespace DreamWeddsManager.Infrastructure.Models.Identity
             ChatHistoryToUsers = new HashSet<ChatHistory<BlazorHeroUser>>();
         }
     }
-
-    public class ApplicationUser : BlazorHeroUser { }
 }
