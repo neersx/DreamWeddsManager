@@ -9,6 +9,13 @@ namespace DreamWedds.Client.WebApp
         {
             services.Configure<SmartSettings>(configuration.GetSection(SmartSettings.SectionName));
             services.AddSingleton(s => s.GetRequiredService<IOptions<SmartSettings>>().Value);
+            services.AddHealthChecks();
+            services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddControllers();
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AddPageRoute("/", "");
+            });
             return services;
         }
     }

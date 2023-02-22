@@ -1,20 +1,18 @@
 using DreamWedds.Client.WebApp;
 using DreamWedds.Client.WebApp.Data;
+using DreamWedds.Client.WebApp.Extensions;
+using DreamWeddsManager.Application.Interfaces.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPageServices(builder.Configuration);
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddRazorPages();
+builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddCurrentUserService();
+builder.Services.AddSharedInfrastructure(builder.Configuration);
+builder.Services.AddIdentity();
+builder.Services.AddJwtAuthentication(builder.Services.GetApplicationSettings(builder.Configuration));
 
 var app = builder.Build();
 
