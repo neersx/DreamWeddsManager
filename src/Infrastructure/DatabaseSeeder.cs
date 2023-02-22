@@ -39,9 +39,9 @@ namespace DreamWeddsManager.Infrastructure
 
         public void Initialize()
         {
-            AddAdministrator();
-            AddBasicUser();
-            _db.SaveChanges();
+            //AddAdministrator();
+            //AddBasicUser();
+            //_db.SaveChanges();
         }
 
         private void AddAdministrator()
