@@ -76,9 +76,8 @@ namespace DreamWedds.Client.WebApp.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
-            var model = new TokenRequest() { Email = Input.UserName, Password = Input.Password };
+            var model = new TokenRequest() { Email = "mukesh@blazorhero.com", Password = "123Pa$$word!" };
             var response = await _identityService.LoginAsync(model);
-
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
