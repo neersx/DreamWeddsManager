@@ -1,3 +1,5 @@
+using DreamWeddsManager.Application.Interfaces.Services.Identity;
+using DreamWeddsManager.Application.Requests.Identity;
 using DreamWeddsManager.Infrastructure.Models.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -73,6 +75,9 @@ namespace DreamWedds.Client.WebApp.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                //var model = new TokenRequest() { Email = Input.UserName, Password = Input.Password };
+                //var result = await _identityService.LoginAsync(model);
+                var user1 = await _userManager.FindByNameAsync(Input.UserName);
                 var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
@@ -81,15 +86,15 @@ namespace DreamWedds.Client.WebApp.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout", new { userName = Input.UserName, ReturnUrl = returnUrl });
-                }
+                //if (result.RequiresTwoFactor)
+                //{
+                //    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                //}
+                //if (result.IsLockedOut)
+                //{
+                //    _logger.LogWarning("User account locked out.");
+                //    return RedirectToPage("./Lockout", new { userName = Input.UserName, ReturnUrl = returnUrl });
+                //}
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");

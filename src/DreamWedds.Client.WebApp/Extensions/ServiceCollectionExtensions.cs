@@ -42,6 +42,9 @@ using DreamWeddsManager.Application.Serialization.Settings;
 using DreamWeddsManager.Application.Interfaces;
 using DreamWedds.Client.WebApp.Services;
 using DreamWedds.Client.WebApp.Permission;
+using DreamWedds.Client.WebApp.Localization;
+using DreamWedds.Client.WebApp.Managers.Preferences;
+using DreamWedds.Client.WebApp.Settings;
 
 namespace DreamWedds.Client.WebApp.Extensions
 {
@@ -58,26 +61,26 @@ namespace DreamWedds.Client.WebApp.Extensions
 
         private static async Task SetCultureFromServerPreferenceAsync(IServiceProvider serviceProvider)
         {
-            //var storageService = serviceProvider.GetService<ServerPreferenceManager>();
-            //if (storageService != null)
-            //{
-            //    // TODO - should implement ServerStorageProvider to work correctly!
-            //    CultureInfo culture;
-            //    var preference = await storageService.GetPreference() as ServerPreference;
-            //    if (preference != null)
-            //        culture = new CultureInfo(preference.LanguageCode);
-            //    else
-            //        culture = new CultureInfo(LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "en-US");
-            //    CultureInfo.DefaultThreadCurrentCulture = culture;
-            //    CultureInfo.DefaultThreadCurrentUICulture = culture;
-            //    CultureInfo.CurrentCulture = culture;
-            //    CultureInfo.CurrentUICulture = culture;
-            //}
+            var storageService = serviceProvider.GetService<ServerPreferenceManager>();
+            if (storageService != null)
+            {
+                // TODO - should implement ServerStorageProvider to work correctly!
+                CultureInfo culture;
+                var preference = await storageService.GetPreference() as ServerPreference;
+                if (preference != null)
+                    culture = new CultureInfo(preference.LanguageCode);
+                else
+                    culture = new CultureInfo(LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "en-US");
+                CultureInfo.DefaultThreadCurrentCulture = culture;
+                CultureInfo.DefaultThreadCurrentUICulture = culture;
+                CultureInfo.CurrentCulture = culture;
+                CultureInfo.CurrentUICulture = culture;
+            }
         }
 
         internal static IServiceCollection AddServerLocalization(this IServiceCollection services)
         {
-            //services.TryAddTransient(typeof(IStringLocalizer<>), typeof(ServerLocalizer<>));
+            services.TryAddTransient(typeof(IStringLocalizer<>), typeof(ServerLocalizer<>));
             return services;
         }
 
@@ -174,7 +177,8 @@ namespace DreamWedds.Client.WebApp.Extensions
             IConfiguration configuration)
             => services
                 .AddDbContext<BlazorHeroContext>(options => options
-                    .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                    .UseSqlServer(configuration.GetConnectionString("DefaultConnection")))
+            .AddTransient<IDatabaseSeeder, DatabaseSeeder>();
 
         internal static IServiceCollection AddCurrentUserService(this IServiceCollection services)
         {
@@ -250,7 +254,7 @@ namespace DreamWedds.Client.WebApp.Extensions
                         ClockSkew = TimeSpan.Zero
                     };
 
-                   // var localizer = await GetRegisteredServerLocalizerAsync<ServerCommonResources>(services);
+                    var localizer = await GetRegisteredServerLocalizerAsync<ServerCommonResources>(services);
 
                     bearer.Events = new JwtBearerEvents
                     {
@@ -260,14 +264,14 @@ namespace DreamWedds.Client.WebApp.Extensions
                             {
                                 c.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                                 c.Response.ContentType = "application/json";
-                                var result = JsonConvert.SerializeObject(Result.Fail("The Token is expired."));
+                                var result = JsonConvert.SerializeObject(Result.Fail(localizer["The Token is expired."]));
                                 return c.Response.WriteAsync(result);
                             }
                             else
                             {
                                 c.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                                 c.Response.ContentType = "application/json";
-                                var result = JsonConvert.SerializeObject(Result.Fail("An unhandled error has occurred."));
+                                var result = JsonConvert.SerializeObject(Result.Fail(localizer["An unhandled error has occurred."]));
                                 return c.Response.WriteAsync(result);
                             }
                         },
@@ -278,7 +282,7 @@ namespace DreamWedds.Client.WebApp.Extensions
                             {
                                 context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                                 context.Response.ContentType = "application/json";
-                                var result = JsonConvert.SerializeObject(Result.Fail("You are not Authorized."));
+                                var result = JsonConvert.SerializeObject(Result.Fail(localizer["You are not Authorized."]));
                                 return context.Response.WriteAsync(result);
                             }
 
@@ -288,7 +292,7 @@ namespace DreamWedds.Client.WebApp.Extensions
                         {
                             context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
                             context.Response.ContentType = "application/json";
-                            var result = JsonConvert.SerializeObject(Result.Fail("You are not authorized to access this resource."));
+                            var result = JsonConvert.SerializeObject(Result.Fail(localizer["You are not authorized to access this resource."]));
                             return context.Response.WriteAsync(result);
                         },
                     };
@@ -306,6 +310,20 @@ namespace DreamWedds.Client.WebApp.Extensions
                 }
             });
             return services;
+        }
+
+        internal static IApplicationBuilder Initialize(this IApplicationBuilder app, Microsoft.Extensions.Configuration.IConfiguration _configuration)
+        {
+            using var serviceScope = app.ApplicationServices.CreateScope();
+
+            var initializers = serviceScope.ServiceProvider.GetServices<IDatabaseSeeder>();
+
+            foreach (var initializer in initializers)
+            {
+                initializer.Initialize();
+            }
+
+            return app;
         }
     }
 }
