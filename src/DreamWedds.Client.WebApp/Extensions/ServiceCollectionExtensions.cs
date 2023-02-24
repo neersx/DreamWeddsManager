@@ -45,6 +45,7 @@ using DreamWedds.Client.WebApp.Permission;
 using DreamWedds.Client.WebApp.Localization;
 using DreamWedds.Client.WebApp.Managers.Preferences;
 using DreamWedds.Client.WebApp.Settings;
+using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Authentication;
 
 namespace DreamWedds.Client.WebApp.Extensions
 {

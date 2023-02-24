@@ -49,7 +49,6 @@ builder.Services.AddRazorPages();
 //    config.ReportApiVersions = true;
 //});
 builder.Services.AddLazyCache();
-//builder.Services.AddJwtAuthentication(builder.Services.GetApplicationSettings(builder.Configuration));
 
 var app = builder.Build();
 

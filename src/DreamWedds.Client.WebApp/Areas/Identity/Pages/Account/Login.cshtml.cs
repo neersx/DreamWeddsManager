@@ -1,5 +1,7 @@
+using DreamWeddsManager.Application.Interfaces.Services;
 using DreamWeddsManager.Application.Interfaces.Services.Identity;
 using DreamWeddsManager.Application.Requests.Identity;
+using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Authentication;
 using DreamWeddsManager.Infrastructure.Models.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -16,15 +18,19 @@ namespace DreamWedds.Client.WebApp.Areas.Identity.Pages.Account
         private readonly UserManager<BlazorHeroUser> _userManager;
         private readonly SignInManager<BlazorHeroUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly ITokenService _identityService;
 
         public LoginModel(
               UserManager<BlazorHeroUser> userManager,
               SignInManager<BlazorHeroUser> signInManager,
+              ITokenService identityService,
+              ICurrentUserService currentUserService,
               ILogger<LoginModel> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _identityService = identityService;
         }
 
         [BindProperty]
@@ -70,14 +76,14 @@ namespace DreamWedds.Client.WebApp.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
+            var model = new TokenRequest() { Email = Input.UserName, Password = Input.Password };
+            var response = await _identityService.LoginAsync(model);
 
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                //var model = new TokenRequest() { Email = Input.UserName, Password = Input.Password };
-                //var result = await _identityService.LoginAsync(model);
-                var user1 = await _userManager.FindByNameAsync(Input.UserName);
+               // var result = await _authenticationManager.Login(model);
                 var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
