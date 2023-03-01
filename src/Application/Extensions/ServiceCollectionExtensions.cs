@@ -11,6 +11,7 @@ using DreamWeddsManager.Application.Features.ExtendedAttributes.Queries.GetAllBy
 using DreamWeddsManager.Application.Features.ExtendedAttributes.Queries.GetById;
 using DreamWeddsManager.Domain.Contracts;
 using DreamWeddsManager.Shared.Wrapper;
+using DreamWeddsManager.Application.Common.Behaviours;
 
 namespace DreamWeddsManager.Application.Extensions
 {
@@ -22,6 +23,13 @@ namespace DreamWeddsManager.Application.Extensions
             //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+            // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheInvalidationBehaviour<,>));
+            // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
         }
 
         public static void AddExtendedAttributesHandlers(this IServiceCollection services)

@@ -46,6 +46,8 @@ using DreamWedds.Client.WebApp.Localization;
 using DreamWedds.Client.WebApp.Managers.Preferences;
 using DreamWedds.Client.WebApp.Settings;
 using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Authentication;
+using MediatR;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace DreamWedds.Client.WebApp.Extensions
 {
@@ -193,18 +195,40 @@ namespace DreamWedds.Client.WebApp.Extensions
         {
             services
                 .AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>()
-                .AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>()
-                .AddIdentity<BlazorHeroUser, BlazorHeroRole>(options =>
-                {
-                    options.Password.RequiredLength = 6;
-                    options.Password.RequireDigit = false;
-                    options.Password.RequireLowercase = false;
-                    options.Password.RequireNonAlphanumeric = false;
-                    options.Password.RequireUppercase = false;
-                    options.User.RequireUniqueEmail = true;
-                })
+                .AddIdentity<BlazorHeroUser, BlazorHeroRole>()
                 .AddEntityFrameworkStores<BlazorHeroContext>()
                 .AddDefaultTokenProviders();
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromHours(24);
+                options.SlidingExpiration = true;
+                options.LoginPath = "/Identity/Account/Login";
+                options.LogoutPath = "/Identity/Account/Logout";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+            });
+
+            services.Configure<DataProtectionTokenProviderOptions>(options => options.TokenLifespan = TimeSpan.FromHours(1));
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("CanPurge", policy => policy.RequireRole("Administrator"));
+                // Here I stored necessary permissions/roles in a constant
+                foreach (var prop in typeof(Permissions).GetNestedTypes().SelectMany(c => c.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)))
+                {
+                    var propertyValue = prop.GetValue(null);
+                    if (propertyValue is not null)
+                    {
+                        options.AddPolicy(propertyValue.ToString(), policy => policy.RequireClaim(ApplicationClaimTypes.Permission, propertyValue.ToString()));
+                    }
+                }
+            });
 
             return services;
         }
@@ -235,69 +259,7 @@ namespace DreamWedds.Client.WebApp.Extensions
             this IServiceCollection services, AppConfiguration config)
         {
             var key = Encoding.ASCII.GetBytes(config.Secret);
-            services
-                .AddAuthentication(authentication =>
-                {
-                    authentication.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    authentication.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                .AddJwtBearer(async bearer =>
-                {
-                    bearer.RequireHttpsMetadata = false;
-                    bearer.SaveToken = true;
-                    bearer.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(key),
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                        RoleClaimType = ClaimTypes.Role,
-                        ClockSkew = TimeSpan.Zero
-                    };
-
-                    var localizer = await GetRegisteredServerLocalizerAsync<ServerCommonResources>(services);
-
-                    bearer.Events = new JwtBearerEvents
-                    {
-                        OnAuthenticationFailed = c =>
-                        {
-                            if (c.Exception is SecurityTokenExpiredException)
-                            {
-                                c.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                                c.Response.ContentType = "application/json";
-                                var result = JsonConvert.SerializeObject(Result.Fail(localizer["The Token is expired."]));
-                                return c.Response.WriteAsync(result);
-                            }
-                            else
-                            {
-                                c.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                                c.Response.ContentType = "application/json";
-                                var result = JsonConvert.SerializeObject(Result.Fail(localizer["An unhandled error has occurred."]));
-                                return c.Response.WriteAsync(result);
-                            }
-                        },
-                        OnChallenge = context =>
-                        {
-                            context.HandleResponse();
-                            if (!context.Response.HasStarted)
-                            {
-                                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                                context.Response.ContentType = "application/json";
-                                var result = JsonConvert.SerializeObject(Result.Fail(localizer["You are not Authorized."]));
-                                return context.Response.WriteAsync(result);
-                            }
-
-                            return Task.CompletedTask;
-                        },
-                        OnForbidden = context =>
-                        {
-                            context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
-                            context.Response.ContentType = "application/json";
-                            var result = JsonConvert.SerializeObject(Result.Fail(localizer["You are not authorized to access this resource."]));
-                            return context.Response.WriteAsync(result);
-                        },
-                    };
-                });
+            services.AddAuthentication("authCookie");
             services.AddAuthorization(options =>
             {
                 // Here I stored necessary permissions/roles in a constant

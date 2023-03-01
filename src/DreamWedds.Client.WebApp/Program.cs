@@ -11,9 +11,10 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-   builder.Services.Configure<SmartSettings>(builder.Configuration.GetSection(SmartSettings.SectionName));
-            builder.Services.AddSingleton(s => s.GetRequiredService<IOptions<SmartSettings>>().Value);
-            builder.Services.AddHealthChecks();
+builder.Services.AddRazorPageServices(builder.Configuration);
+//builder.Services.Configure<SmartSettings>(builder.Configuration.GetSection(SmartSettings.SectionName));
+//            builder.Services.AddSingleton(s => s.GetRequiredService<IOptions<SmartSettings>>().Value);
+//            builder.Services.AddHealthChecks();
 
 builder.Services.AddCors();
 builder.Services.AddSignalR();
@@ -41,7 +42,7 @@ builder.Services.AddInfrastructureMappings();
 builder.Services.AddControllers();
 //builder.Services.AddExtendedAttributesValidators();
 builder.Services.AddExtendedAttributesHandlers();
-builder.Services.AddRazorPages();
+//builder.Services.AddRazorPages();
 //builder.Services.AddApiVersioning(config =>
 //{
 //    config.DefaultApiVersion = new ApiVersion(1, 0);
@@ -64,11 +65,31 @@ else
     app.UseHsts();
 }
 
+app.Use(async (context, next) =>
+{
+    // Console.WriteLine($"The authenticated status {context.User.Identity!.IsAuthenticated}");
+    await next.Invoke();
+    Console.WriteLine($"The authenticated status 1 {context.User.Identity!.IsAuthenticated}");
+});
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.Use(async (context, next) =>
+{
+    // Console.WriteLine($"The authenticated status {context.User.Identity!.IsAuthenticated}");
+    await next.Invoke();
+    Console.WriteLine($"The authenticated status 2 {context.User.Identity!.IsAuthenticated}");
+});
 app.UseAuthentication();
+
+app.Use(async (context, next) =>
+{
+    // Console.WriteLine($"The authenticated status {context.User.Identity!.IsAuthenticated}");
+    await next.Invoke();
+    Console.WriteLine($"The authenticated status 3 {context.User.Identity!.IsAuthenticated}");
+});
 app.UseAuthorization();
 
 app.MapRazorPages();

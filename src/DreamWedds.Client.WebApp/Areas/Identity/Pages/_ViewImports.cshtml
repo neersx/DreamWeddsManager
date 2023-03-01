@@ -1,4 +1,5 @@
 ﻿@using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Authentication;
+@using Microsoft.AspNetCore.Components;
 @using Microsoft.AspNetCore.Identity
 @using DreamWedds.Client.WebApp
 @using DreamWedds.Client.WebApp.Data
@@ -8,3 +9,4 @@
 @namespace DreamWedds.Client.WebApp.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, DreamWedds.Client.WebApp
+@inject NavigationManager _navigationManager

@@ -4,11 +4,14 @@ using DreamWeddsManager.Application.Requests.Identity;
 using DreamWeddsManager.Client.Infrastructure.Managers.Identity.Authentication;
 using DreamWeddsManager.Infrastructure.Models.Identity;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace DreamWedds.Client.WebApp.Areas.Identity.Pages.Account
 {
@@ -76,30 +79,23 @@ namespace DreamWedds.Client.WebApp.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
-            var model = new TokenRequest() { Email = "mukesh@blazorhero.com", Password = "123Pa$$word!" };
-            var response = await _identityService.LoginAsync(model);
+
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-               // var result = await _authenticationManager.Login(model);
-                var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+                var model = new TokenRequest() { Email = Input.UserName, Password = Input.Password };
+                var result = await _identityService.LoginAsync(model);
+
+                //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result1.Principal);
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync(Input.UserName);
+                    ClaimsPrincipal currentUser = User;
+                    var users = _userManager.GetUserAsync(User).Result;
+                    var user = await _userManager.FindByEmailAsync(Input.UserName);
                     await _userManager.AddLoginAsync(user, new UserLoginInfo("UserNamePassword", user.Id, "Account/Login"));
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
-                //if (result.RequiresTwoFactor)
-                //{
-                //    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                //}
-                //if (result.IsLockedOut)
-                //{
-                //    _logger.LogWarning("User account locked out.");
-                //    return RedirectToPage("./Lockout", new { userName = Input.UserName, ReturnUrl = returnUrl });
-                //}
+
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");

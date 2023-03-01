@@ -1,4 +1,5 @@
-﻿using DreamWedds.Client.WebApp.Models;
+﻿using DreamWedds.Client.WebApp.Filters;
+using DreamWedds.Client.WebApp.Models;
 using Microsoft.Extensions.Options;
 
 namespace DreamWedds.Client.WebApp
@@ -15,7 +16,19 @@ namespace DreamWedds.Client.WebApp
             services.AddRazorPages(options =>
             {
                 options.Conventions.AddPageRoute("/", "");
-            });
+            })
+                     .AddMvcOptions(options =>
+                     {
+                         options.Filters.Add<ApiExceptionFilterAttribute>();
+                     })
+    .AddViewLocalization()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+
+    })
+    .AddRazorRuntimeCompilation();
+            services.AddSignalR();
             return services;
         }
     }

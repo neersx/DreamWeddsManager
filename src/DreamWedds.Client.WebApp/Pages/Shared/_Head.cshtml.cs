@@ -7,6 +7,7 @@ namespace DreamWedds.Client.WebApp.Pages.Shared
     {
         public void OnGet()
         {
+            ViewData["title"] = "This is test title for meta data check.";
         }
     }
 }
