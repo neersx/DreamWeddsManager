@@ -5,10 +5,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DreamWeddsManager.Domain.Entities.DreamWedds
 {
-
-    public class WeddingTemplate : AuditableEntity<int>
+    public class TemplateMaster : AuditableEntity<int>
     {
-        public WeddingTemplate()
+        public TemplateMaster()
         {
             this.OrderDetails = new HashSet<OrderDetail>();
             this.TemplateImages = new HashSet<TemplateImage>();
@@ -20,7 +19,6 @@ namespace DreamWeddsManager.Domain.Entities.DreamWedds
         public string Name { get; set; }
         public int Type { get; set; }
         public int Status { get; set; }
-        [MaxLength(2500)]
         public string Content { get; set; }
         [MaxLength(250)]
         public string Subject { get; set; }
@@ -37,11 +35,10 @@ namespace DreamWeddsManager.Domain.Entities.DreamWedds
         public int? Cost { get; set; }
         [MaxLength(150)]
         public string AuthorName { get; set; }
-        [MaxLength(250)]
+        [MaxLength(1000)]
         public string AboutTemplate { get; set; }
         [MaxLength(500)]
         public string Features { get; set; }
-      
         public Nullable<int> TemplateCode { get; set; }
     
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

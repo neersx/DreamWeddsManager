@@ -49,7 +49,7 @@ namespace DreamWeddsManager.Infrastructure.Contexts
         public DbSet<RsvpDetail> RsvpDetail { get; set; }
         public DbSet<SubscriptionMaster> SubscriptionMaster { get; set; }
         public DbSet<TemplateImage> TemplateImage { get; set; }
-        public DbSet<WeddingTemplate> TemplateMaster { get; set; }
+        public DbSet<TemplateMaster> TemplateMaster { get; set; }
         public DbSet<TemplateMergeField> TemplateMergeField { get; set; }
         public DbSet<TimeLine> TimeLine { get; set; }
         public DbSet<UserWeddingSubscription> UserWeddingSubscription { get; set; }

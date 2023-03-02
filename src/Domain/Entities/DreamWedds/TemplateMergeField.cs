@@ -17,6 +17,6 @@ namespace DreamWeddsManager.Domain.Entities.DreamWedds
         public Nullable<int> Sequence { get; set; }
         public int? TemplateCode { get; set; }
     
-        public virtual WeddingTemplate TemplateMaster { get; set; }
+        public virtual TemplateMaster TemplateMaster { get; set; }
     }
 }

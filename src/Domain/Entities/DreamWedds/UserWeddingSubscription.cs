@@ -20,7 +20,7 @@ namespace DreamWeddsManager.Domain.Entities.DreamWedds
     
         public virtual OrderMaster OrderMaster { get; set; }
         public virtual SubscriptionMaster SubscriptionMaster { get; set; }
-        public virtual WeddingTemplate TemplateMaster { get; set; }
+        public virtual TemplateMaster TemplateMaster { get; set; }
         public virtual Wedding Wedding { get; set; }
     }
 }

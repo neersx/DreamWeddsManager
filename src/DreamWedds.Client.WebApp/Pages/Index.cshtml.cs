@@ -1,20 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DreamWeddsManager.Application.Features.Brands.Queries.GetAll;
+using DreamWeddsManager.Application.Features.Templates.Queries;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DreamWedds.Client.WebApp.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel<IndexModel>
     {
-        private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public async Task OnGet()
         {
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
-
+            var templates = await _mediator.Send(new GetAllTemplatesQuery());
             ViewData["LoadMetaTag"] = BindMetaTag();
 
         }
