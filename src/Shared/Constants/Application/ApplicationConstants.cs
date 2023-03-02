@@ -24,7 +24,10 @@
         public static class Cache
         {
             public const string GetAllBrandsCacheKey = "all-brands";
-            public const string GetAllWeddingtemplatesCacheKey = "all-wedding-templates";
+            public const string GetAllTemplatesCacheKey = "all-templates";
+            public const string GetAllBlogsCacheKey = "all-blogs";
+            public const string GetAllFaqCacheKey = "all-faqs";
+            public const string GetAllWeddingsCacheKey = "all-weddings";
             public const string GetAllDocumentTypesCacheKey = "all-document-types";
 
             public static string GetAllEntityExtendedAttributesCacheKey(string entityFullName)

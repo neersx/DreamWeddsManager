@@ -33,6 +33,7 @@ builder.Services.AddJwtAuthentication(builder.Services.GetApplicationSettings(bu
 builder.Services.AddApplicationLayer();
 builder.Services.AddApplicationServices();
 builder.Services.AddRepositories();
+builder.Services.AddDreamWeddsRepositories();
 builder.Services.AddExtendedAttributesUnitOfWork();
 builder.Services.AddSharedInfrastructure(builder.Configuration);
 //builder.Services.RegisterSwagger();

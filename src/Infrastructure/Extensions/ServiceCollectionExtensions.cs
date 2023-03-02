@@ -33,6 +33,13 @@ namespace DreamWeddsManager.Infrastructure.Extensions
                 .AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
         }
 
+        public static IServiceCollection AddDreamWeddsRepositories(this IServiceCollection services)
+        {
+            return services
+                .AddTransient<IWeddingRepository, WeddingRepository>()
+                .AddTransient<ITemplateRepository, TemplateRepository>();
+        }
+
         public static IServiceCollection AddExtendedAttributesUnitOfWork(this IServiceCollection services)
         {
             return services

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DreamWeddsManager.Domain.Contracts;
 
@@ -11,6 +12,7 @@ namespace DreamWeddsManager.Application.Interfaces.Repositories
 
         Task<T> GetByIdAsync(TId id);
 
+        Task<T> FindByAsync(Expression<Func<T, bool>> match);
         Task<List<T>> GetAllAsync();
 
         Task<List<T>> GetPagedResponseAsync(int pageNumber, int pageSize);

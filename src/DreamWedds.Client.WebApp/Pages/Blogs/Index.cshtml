@@ -8,6 +8,12 @@
 <section class="py-5">
     <div class="container">
         <div class="row">
+                                            @{
+                                    int i = 1;
+                                }
+            @foreach (var blog in Model.Blogs)
+            {
+                if(i%2 == 0){
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-6 justify-content-center d-flex flex-column">
@@ -18,12 +24,12 @@
                         </div>
                     </div>
                     <div class="col-lg-6 justify-content-center d-flex flex-column ps-lg-5 pt-lg-0 pt-3">
-                        <h6 class="category text-info mt-3">Coworking</h6>
+                        <h6 class="category text-info mt-3">Wedding</h6>
                         <h3>
-                            <a href="javascript:;" class="text-darker">Warner Music Group buys concert discovery service Songkick</a>
+                            <a asp-page="/blogs/details" asp-route-title="@blog.Title.ToLower().Replace(' ', '-')" class="text-darker">@blog.Title</a>
                         </h3>
                         <p>
-                            Warner Music Group announced today it’s acquiring the selected assets of the music platform Songkick, including its app for finding concerts and the company’s trademark. Songkick has been involved in a lawsuit against the major… <a href="javascript:;" class="text-darker icon-move-right text-sm">
+                            @(@Html.Raw(blog.Content).ToString().Substring(0,200))… <a asp-page="/blogs/details" asp-route-title="@blog.Title.ToLower().Replace(' ', '-')" class="text-darker icon-move-right text-sm">
                                 Read More
                                 <i class="fas fa-arrow-right text-xs ms-1"></i>
                             </a>
@@ -34,22 +40,23 @@
                     </div>
                 </div>
             </div>
+                } else {
             <div class="col-lg-12 mt-5">
                 <div class="row flex-row-reverse">
                     <div class="col-lg-6 justify-content-center d-flex flex-column">
                         <div class="card rounded-3">
                             <div class="blur-shadow-image">
-                                <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/couch.jpg" alt="img-blur-shadow-blog-2" class="img-fluid shadow rounded-3">
+                                <img src="@blog.ImageUrl" alt="img-blur-shadow-blog-2" class="img-fluid shadow rounded-3">
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 pe-lg-5 justify-content-center d-flex flex-column pt-lg-0 pt-3">
                         <h6 class="category text-info mt-3">House</h6>
                         <h3>
-                            <a href="javascript:;" class="text-darker">Warner Music Group buys concert discovery service Songkick</a>
+                            <a asp-page="/blogs/details" asp-route-title="@blog.Title.ToLower().Replace(' ', '-')" class="text-darker">@blog.Title</a>
                         </h3>
                         <p>
-                            Warner Music Group announced today it’s acquiring the selected assets of the music platform Songkick, including its app for finding concerts and the company’s trademark. Songkick has been involved in a lawsuit against the major… <a href="javascript:;" class="text-darker icon-move-right text-sm">
+                            @Html.Raw(blog.Content).ToString().Substring(0,200))… <a asp-page="/blogs/details" asp-route-title="@blog.Title.ToLower().Replace(' ', '-')" class="text-darker icon-move-right text-sm">
                                 Read More
                                 <i class="fas fa-arrow-right text-xs ms-1"></i>
                             </a>
@@ -60,6 +67,10 @@
                     </div>
                 </div>
             </div>
+                }
+            i++;
+            }
+
         </div>
     </div>
 </section>

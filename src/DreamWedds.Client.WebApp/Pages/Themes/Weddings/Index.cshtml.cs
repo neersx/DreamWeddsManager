@@ -1,19 +1,18 @@
+using DreamWeddsManager.Application.Features.Templates.Queries;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DreamWedds.Client.WebApp.Pages.Themes.Weddings
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel<IndexModel>
     {
-        private readonly ILogger<PrivacyModel> _logger;
-
-        public IndexModel(ILogger<PrivacyModel> logger)
+        public List<GetAllTemplatesResponse> Templates { get; set; }
+        public async Task OnGetAsync()
         {
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
+            var result = await _mediator.Send(new GetAllTemplatesQuery());
+            if (result == null)
+                throw new Exception("No Wedding Tempaltes available to display.");
+            Templates = result.Data.ToList();
         }
     }
 }

@@ -2,191 +2,340 @@
 @model DreamWedds.Client.WebApp.Pages.Themes.Weddings.DetailsModel
 @{
 }
+<br />
+<br />
+<br />
+<br />
+@section HeadBlock {
 
-<header>
-    <div class="page-header min-vh-85">
-        <div class="position-absolute border-radius-lg border-top-start-radius-0 border-top-end-radius-0 border-bottom-end-radius-0 fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/office.jpg'); background-size:cover;">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 d-flex justify-content-center flex-column">
-                    <div class="card card-body blur d-flex justify-content-center px-5 shadow-lg mt-lg-5 mt-3 py-5">
-                        <h1 class="text-gradient text-primary mb-0">Soft Design - News</h1>
-                        <h1 class="mb-4">Actualize dreams</h1>
-                        <p class="lead pe-sm-5 me-sm-5">The time is now for it be okay to be great. People in this world shun people for being nice. </p>
-                        <h5 class="mt-3">Connect with us on</h5>
-                        <div class="d-flex justify-content-start">
-                            <a href="javascript:;"><i class="fab fa-facebook text-dark me-4 text-lg"></i></a>
-                            <a href="javascript:;"><i class="fab fa-instagram text-dark me-4 text-lg"></i></a>
-                            <a href="javascript:;"><i class="fab fa-twitter text-dark me-4 text-lg"></i></a>
-                            <a href="javascript:;"><i class="fab fa-google-plus text-dark text-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- -------- END HEADER 8 w/ card over right bg image ------- -->
-<!-- START Blogs w/ 3 images & quote & text -->
-<section class="py-5 mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 ms-auto me-auto">
-                <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">The Idea</h6>
-                <h3 class="title mb-4">Create a design system that can be used in any product available</h3>
-                <p class="text-dark">
-                    This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if
-                    you want the user to see more. We are here to make life better.
-                    <br> <br>
-                    And now I look and look around and there’s so many Kanyes I've been trying to figure out the bed design for the master bedroom at our Hidden Hills compound... and thank you for turning my personal jean jacket into a couture piece.
-                    <br> <br>
-                    The way to survive in modern society is to be an ascetic. It is to retreat from society. There’s too much society everywhere you go…The only solution is turn it off.
-                </p>
-            </div>
-        </div>
-        <section class="py-7 position-relative">
-            <div id="carousel-testimonials" class="carousel slide carousel-team">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-md-5 me-lg-auto position-relative">
-                                    <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm fadeIn4 fadeInBottom">First Step</h6>
-                                    <h1 class="text-dark display-3 font-weight-bolder fadeIn2 fadeInBottom">Give your best</h1>
-                                    <p class="my-4 lead text-dark fadeIn2 fadeInBottom">
-                                        Give your best to create something unique with high impact.
-                                    </p>
-                                </div>
-                                <div class="col-md-5 ms-lg-auto">
-                                    <div class="p-3">
-                                        <img class="w-100 border-radius-md max-height-600 fadeIn2 fadeInBottom" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-woman.jpg" alt="First slide">
+    <link id="pagestyle"
+        href="https://demos.creative-tim.com/soft-ui-dashboard-pro/assets/css/soft-ui-dashboard.min.css?v=1.1.1"
+        rel="stylesheet" />
+
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="mb-4">@Model.Detail.Name | Theme Details</h5>
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-6 text-center">
+                            <img class="w-100 border-radius-lg shadow-lg mx-auto" src="@Model.Detail.ThumbnailImageUrl"
+                                alt="chair">
+                            <div class="my-gallery d-flex mt-4 pt-2" itemscope=""
+                                itemtype="http://schema.org/ImageGallery" data-pswp-uid="1">
+                                <figure itemprop="associatedMedia" itemscope=""
+                                    itemtype="http://schema.org/ImageObject">
+                                    <a href="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-pink.jpg"
+                                        itemprop="contentUrl" data-size="500x600">
+                                        <img class="w-75 min-height-100 max-height-100 border-radius-lg shadow"
+                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-pink.jpg"
+                                            alt="Image description">
+                                    </a>
+                                </figure>
+                                <figure itemprop="associatedMedia" itemscope=""
+                                    itemtype="http://schema.org/ImageObject">
+                                    <a href="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/black-chair.jpg"
+                                        itemprop="contentUrl" data-size="500x600">
+                                        <img class="w-75 min-height-100 max-height-100 border-radius-lg shadow"
+                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/black-chair.jpg"
+                                            itemprop="thumbnail" alt="Image description">
+                                    </a>
+                                </figure>
+                                <figure itemprop="associatedMedia" itemscope=""
+                                    itemtype="http://schema.org/ImageObject">
+                                    <a href="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-steel.jpg"
+                                        itemprop="contentUrl" data-size="500x600">
+                                        <img class="w-75 min-height-100 max-height-100 border-radius-lg shadow"
+                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-steel.jpg"
+                                            itemprop="thumbnail" alt="Image description">
+                                    </a>
+                                </figure>
+                                <figure itemprop="associatedMedia" itemscope=""
+                                    itemtype="http://schema.org/ImageObject">
+                                    <a href="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-wood.jpg"
+                                        itemprop="contentUrl" data-size="500x600">
+                                        <img class="w-75 min-height-100 max-height-100 border-radius-lg shadow"
+                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-wood.jpg"
+                                            itemprop="thumbnail" alt="Image description">
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+                                <div class="pswp__bg"></div>
+
+                                <div class="pswp__scroll-wrap">
+
+
+                                    <div class="pswp__container">
+                                        <div class="pswp__item"></div>
+                                        <div class="pswp__item"></div>
+                                        <div class="pswp__item"></div>
+                                    </div>
+
+                                    <div class="pswp__ui pswp__ui--hidden">
+                                        <div class="pswp__top-bar">
+
+                                            <div class="pswp__counter"></div>
+                                            <button class="btn btn-white btn-sm pswp__button pswp__button--close">Close
+                                                (Esc)</button>
+                                            <button
+                                                class="btn btn-white btn-sm pswp__button pswp__button--fs">Fullscreen</button>
+                                            <button class="btn btn-white btn-sm pswp__button pswp__button--arrow--left">
+                                                Prev
+                                            </button>
+                                            <button
+                                                class="btn btn-white btn-sm pswp__button pswp__button--arrow--right">
+                                                Next
+                                            </button>
+
+
+                                            <div class="pswp__preloader">
+                                                <div class="pswp__preloader__icn">
+                                                    <div class="pswp__preloader__cut">
+                                                        <div class="pswp__preloader__donut"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                                            <div class="pswp__share-tooltip"></div>
+                                        </div>
+                                        <div class="pswp__caption">
+                                            <div class="pswp__caption__center"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-md-5 me-lg-auto position-relative">
-                                    <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm fadeIn4 fadeInBottom">Second Step</h6>
-                                    <h1 class="text-dark display-3 font-weight-bolder fadeIn2 fadeInBottom">Plan your work</h1>
-                                    <p class="my-4 lead text-dark fadeIn2 fadeInBottom">
-                                        As we live, our hearts turn colder. Cause pain is what we go through.
-                                    </p>
-                                </div>
-                                <div class="col-md-5 ms-lg-auto">
-                                    <div class="p-3">
-                                        <img class="w-100 border-radius-md max-height-600 fadeIn2 fadeInBottom" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-light.jpg" alt="Second slide">
-                                    </div>
+                        <div class="col-lg-5 mx-auto">
+                            <h3 class="mt-lg-0 mt-4">@Model.Detail.Name</h3> | <span class="badge badge-success">In Stock</span>
+                            <div class="rating">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                            </div>
+                            <br>
+                            <h6 class="mb-0 mt-3">Price</h6>
+                            <h5>INR. @Model.Detail.Cost</h5>
+
+                            <label class="mt-4">Description</label>
+                            <p> @Html.Raw(Model.Detail.AboutTemplate)</p>
+                            <ul>
+                                <li>The most beautiful curves of this swivel stool adds an elegant touch to any
+                                    environment</li>
+                                <li>Memory swivel seat returns to original seat position</li>
+                                <li>Comfortable integrated layered chair seat cushion design</li>
+                                <li>Fully assembled! No assembly required</li>
+                            </ul>
+                            <label class="mt-2">Features</label>
+                            <div class="col-md-12">
+                                @{
+                                    int i = 1;
+                                }
+                                @foreach (var tag in Model.Detail.Tags.Split(','))
+                                {
+                                    if (i % 2 == 0)
+                                    {
+                                       <span> •</span> <span class="badge badge-sm bg-gradient-warning">@tag</span> 
+                                    }
+                                    else if (i % 3 == 0)
+                                    {
+                                        <span> •</span> <span class="badge badge-sm bg-gradient-info">@tag</span>
+                                    }
+                                    else
+                                    {
+                                        <span>• </span><span class="badge badge-sm bg-gradient-primary">@tag</span> 
+                                    }                                 
+                                    i++;
+                                }
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-lg-5">
+                                    <button class="btn bg-gradient-primary mb-0 mt-lg-auto w-100" type="button"
+                                        name="button">Add to cart</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-md-5 me-lg-auto position-relative">
-                                    <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm fadeIn4 fadeInBottom">Third Step</h6>
-                                    <h1 class="text-dark display-3 font-weight-bolder fadeIn2 fadeInBottom">Follow your dreams</h1>
-                                    <p class="my-4 lead text-dark fadeIn2 fadeInBottom">
-                                        The time is now for it to be okay to be great. People in this world shun people.
-                                    </p>
-                                </div>
-                                <div class="col-md-5 ms-lg-auto">
-                                    <div class="p-3">
-                                        <img class="w-100 border-radius-md max-height-600 fadeIn2 fadeInBottom" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/circle-guy.jpg" alt="Second slide">
-                                    </div>
-                                </div>
+                    @* <div class="row mt-5">
+                        <div class="col-12">
+                            <h5 class="ms-3">Other Products</h5>
+                            <div class="table table-responsive">
+                                <table class="table align-items-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Product</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Price</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Review</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Availability</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Id</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/black-chair.jpg"
+                                                            class="avatar avatar-md me-3" alt="table image">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Christopher Knight Home</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm text-secondary mb-0">$89.53</p>
+                                            </td>
+                                            <td>
+                                                <div class="rating ms-lg-n4">
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-sm">
+                                                <div class="progress mx-auto">
+                                                    <div class="progress-bar bg-gradient-success" role="progressbar"
+                                                        style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm">230019</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-pink.jpg"
+                                                            class="avatar avatar-md me-3" alt="table image">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Bar Height Swivel Barstool</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm text-secondary mb-0">$99.99</p>
+                                            </td>
+                                            <td>
+                                                <div class="rating ms-lg-n4">
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-sm">
+                                                <div class="progress mx-auto">
+                                                    <div class="progress-bar bg-gradient-success" role="progressbar"
+                                                        style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm">87120</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-steel.jpg"
+                                                            class="avatar avatar-md me-3" alt="table image">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Signature Design by Ashley</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm text-secondary mb-0">$129.00</p>
+                                            </td>
+                                            <td>
+                                                <div class="rating ms-lg-n4">
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-sm">
+                                                <div class="progress mx-auto">
+                                                    <div class="progress-bar bg-gradient-warning" role="progressbar"
+                                                        style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm">412301</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/chair-wood.jpg"
+                                                            class="avatar avatar-md me-3" alt="table image">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Modern Square</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm text-secondary mb-0">$59.99</p>
+                                            </td>
+                                            <td>
+                                                <div class="rating ms-lg-n4">
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-sm">
+                                                <div class="progress mx-auto">
+                                                    <div class="progress-bar bg-gradient-warning" role="progressbar"
+                                                        style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm">001992</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-md-5 me-lg-auto position-relative">
-                                    <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm fadeIn4 fadeInBottom">Fourth Step</h6>
-                                    <h1 class="text-dark display-3 font-weight-bolder fadeIn2 fadeInBottom">Never give up</h1>
-                                    <p class="my-4 lead text-dark fadeIn2 fadeInBottom">
-                                        Everyone’s born confident, and everything’s taken away from you.
-                                    </p>
-                                </div>
-                                <div class="col-md-5 ms-lg-auto">
-                                    <div class="p-3">
-                                        <img class="w-100 border-radius-md max-height-600 fadeIn2 fadeInBottom" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-icecream.jpg" alt="Second slide">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="position-relative mt-n6">
-                    <a class="carousel-control-prev text-dark position-absolute bottom-0 start-0" href="#carousel-testimonials" role="button" data-bs-slide="prev">
-                        <i class="fas fa-2x fa-chevron-left position-absolute start-0 ms-3"></i>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next text-dark position-absolute bottom-0 start-0 ms-4" href="#carousel-testimonials" role="button" data-bs-slide="next">
-                        <i class="fas fa-2x fa-chevron-right"></i>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    </div> *@
                 </div>
             </div>
-            <div class="row mt-10">
-                <div class="col-lg-3 col-6 mb-lg-0 mb-4">
-                    <a href="javascript:;" class="text-lg text-gradient text-primary h3 ps-3 active" data-bs-target="#carousel-testimonials" data-bs-slide-to="0">
-                        <span>01</span>
-                        <span class="ms-2">Give your best</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-6 mb-lg-0 mb-4">
-                    <a href="javascript:;" class="text-lg text-gradient text-primary h3" data-bs-target="#carousel-testimonials" data-bs-slide-to="1">
-                        <span>02</span>
-                        <span class="ms-2">Plan your work</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-6 mb-lg-0 mb-4">
-                    <a href="javascript:;" class="text-lg text-gradient text-primary h3" data-bs-target="#carousel-testimonials" data-bs-slide-to="2">
-                        <span>03</span>
-                        <span class="ms-2"> Follow your dreams </span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-6 mb-lg-0 mb-4">
-                    <a href="javascript:;" class="text-lg text-gradient text-primary h3" data-bs-target="#carousel-testimonials" data-bs-slide-to="3">
-                        <span>04</span>
-                        <span class="ms-2"> Never give up </span>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="page-header min-vh-50" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/glass-wall.jpg')">
-        <span class="mask bg-gradient-dark opacity-6"></span>
-        <div class="position-absolute w-100 z-index-1 bottom-0">
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-                </defs>
-                <g class="moving-waves">
-                    <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,1"></use>
-                </g>
-            </svg>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 ms-auto me-auto mt-7">
-                <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">Our effort</h6>
-                <h3 class="mb-4">The powerfull design system</h3>
-                <p class="text-dark">
-                    The way to survive in modern society is to be an ascetic. It is to retreat from society. There’s too much society everywhere you go…The only solution is turn it off.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+</div>

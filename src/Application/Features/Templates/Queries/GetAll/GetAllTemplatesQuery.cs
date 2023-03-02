@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DreamWeddsManager.Application.Enums;
 using DreamWeddsManager.Application.Features.Brands.Queries.GetAll;
 using DreamWeddsManager.Application.Interfaces.Repositories;
 using DreamWeddsManager.Domain.Entities.Catalog;
@@ -40,9 +41,9 @@ namespace DreamWeddsManager.Application.Features.Templates.Queries
         public async Task<Result<List<GetAllTemplatesResponse>>> Handle(GetAllTemplatesQuery request, CancellationToken cancellationToken)
         {
             Func<Task<List<TemplateMaster>>> getAllTemplates = () => _unitOfWork.Repository<TemplateMaster>().GetAllAsync();
-            var list = await _cache.GetOrAddAsync(ApplicationConstants.Cache.GetAllWeddingtemplatesCacheKey, getAllTemplates);
-            var mappedBrands = _mapper.Map<List<GetAllTemplatesResponse>>(list);
-            return await Result<List<GetAllTemplatesResponse>>.SuccessAsync(mappedBrands);
+            var list = await _cache.GetOrAddAsync(ApplicationConstants.Cache.GetAllTemplatesCacheKey, getAllTemplates);
+            var mappedTemplates = _mapper.Map<List<GetAllTemplatesResponse>>(list.Where(x => x.Type == (int)TemplateType.Wedding));
+            return await Result<List<GetAllTemplatesResponse>>.SuccessAsync(mappedTemplates);
         }
     }
 
@@ -64,5 +65,6 @@ namespace DreamWeddsManager.Application.Features.Templates.Queries
         public string ThumbnailImageUrl { get; set; }
         [MaxLength(250)]
         public string TagLine { get; set; }
+        public string AboutTemplate { get; set; }   
     }
 }

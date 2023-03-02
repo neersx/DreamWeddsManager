@@ -2,8 +2,10 @@
 using DreamWeddsManager.Domain.Contracts;
 using DreamWeddsManager.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace DreamWeddsManager.Infrastructure.Repositories
@@ -35,12 +37,18 @@ namespace DreamWeddsManager.Infrastructure.Repositories
         {
             return await _dbContext
                 .Set<T>()
+                .Where(x => !x.IsDeleted)
                 .ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(TId id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
+        }
+
+        public async Task<T> FindByAsync(Expression<Func<T, bool>> match)
+        {
+            return await _dbContext.Set<T>().FirstOrDefaultAsync(match);
         }
 
         public async Task<List<T>> GetPagedResponseAsync(int pageNumber, int pageSize)

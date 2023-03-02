@@ -1,5 +1,7 @@
 ﻿@page
 @model IndexModel
+@using DreamWeddsManager.Application.Features.Templates.Queries;
+
 @{
     ViewData["Title"] = "Home page";
 }
@@ -7,7 +9,7 @@
 <partial name="_PageBanner" />
 <partial name="_AnnouncementStrip" />
 <partial name="_Home.Feature" />
-<partial name="_QuickThemes" />
+<partial name="_QuickThemes" view-data="ViewData" />
 <!-- START Testimonials w/ user image & text & info -->
 <section class="bg-gradient-primary position-relative overflow-hidden">
     <img src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute opacity-6">
