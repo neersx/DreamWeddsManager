@@ -50,7 +50,7 @@
                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-6">
-                                    <a type="button" asp-page="/themes/weddings/details" asp-route-id="@item.Name" class="btn btn-sm bg-gradient-primary">BUY</a>
+                                    <a type="button" asp-page="/Themes/Weddings/Details" asp-route-name="@item.Name.ToLower().Replace(' ', '-')" class="btn btn-sm bg-gradient-primary">BUY</a>
                                 </div>
                             </div>
                         </div>

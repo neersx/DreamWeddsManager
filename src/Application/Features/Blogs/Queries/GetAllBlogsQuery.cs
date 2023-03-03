@@ -17,31 +17,39 @@ using System.Threading.Tasks;
 
 namespace DreamWeddsManager.Application.Features.Blogs.Queries
 {
-
     public class GetAllBlogsQuery : IRequest<Result<List<GetAllBlogsResponse>>>
     {
-        public GetAllBlogsQuery()
-        {
-        }
+        public GetAllBlogsQuery() { }
     }
 
-    internal class GetAllBlogsCachedQueryHandler : IRequestHandler<GetAllBlogsQuery, Result<List<GetAllBlogsResponse>>>
+    internal class GetAllBlogsCachedQueryHandler
+        : IRequestHandler<GetAllBlogsQuery, Result<List<GetAllBlogsResponse>>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IAppCache _cache;
 
-        public GetAllBlogsCachedQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper, IAppCache cache)
+        public GetAllBlogsCachedQueryHandler(
+            IUnitOfWork<int> unitOfWork,
+            IMapper mapper,
+            IAppCache cache
+        )
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _cache = cache;
         }
 
-        public async Task<Result<List<GetAllBlogsResponse>>> Handle(GetAllBlogsQuery request, CancellationToken cancellationToken)
+        public async Task<Result<List<GetAllBlogsResponse>>> Handle(
+            GetAllBlogsQuery request,
+            CancellationToken cancellationToken
+        )
         {
             Func<Task<List<Blog>>> getAllBlogs = () => _unitOfWork.Repository<Blog>().GetAllAsync();
-            var list = await _cache.GetOrAddAsync(ApplicationConstants.Cache.GetAllBlogsCacheKey, getAllBlogs);
+            var list = await _cache.GetOrAddAsync(
+                ApplicationConstants.Cache.GetAllBlogsCacheKey,
+                getAllBlogs
+            );
             var mappedBlogs = _mapper.Map<List<GetAllBlogsResponse>>(list);
             return await Result<List<GetAllBlogsResponse>>.SuccessAsync(mappedBlogs);
         }
@@ -58,5 +66,6 @@ namespace DreamWeddsManager.Application.Features.Blogs.Queries
         public string ImageUrl { get; set; }
         public int BlogType { get; set; } = 0;
         public string SpecialNote { get; set; }
+        public DateTime CreatedOn { get; set; }
     }
 }

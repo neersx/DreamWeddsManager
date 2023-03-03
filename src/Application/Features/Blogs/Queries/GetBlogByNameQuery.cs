@@ -51,6 +51,7 @@ namespace DreamWeddsManager.Application.Features.Blogs.Queries
         public string ImageUrl { get; set; }
         public int BlogType { get; set; } = 0;
         public string SpecialNote { get; set; }
+        public DateTime CreatedOn { get; set; }
     }
 
 }
