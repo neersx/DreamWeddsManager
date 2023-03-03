@@ -9,10 +9,11 @@ namespace DreamWeddsManager.Domain.Entities.DreamWedds
     {
         public TemplateMaster()
         {
+            this.MetaTags = new HashSet<MetaTags>();
             this.OrderDetails = new HashSet<OrderDetail>();
+            this.Comments = new HashSet<TemplateComments>();
             this.TemplateImages = new HashSet<TemplateImage>();
             this.TemplateMergeFields = new HashSet<TemplateMergeField>();
-            //this.TemplatePages = new HashSet<TemplatePage>();
             this.UserWeddingSubscriptions = new HashSet<UserWeddingSubscription>();
         }
         [MaxLength(250)]
@@ -40,8 +41,10 @@ namespace DreamWeddsManager.Domain.Entities.DreamWedds
         [MaxLength(500)]
         public string Features { get; set; }
         public Nullable<int> TemplateCode { get; set; }
-    
+
+        public virtual ICollection<MetaTags> MetaTags { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<TemplateComments> Comments { get; set; }
         public virtual ICollection<TemplateImage> TemplateImages { get; set; }
         public virtual ICollection<TemplateMergeField> TemplateMergeFields { get; set; }
         //public virtual ICollection<TemplatePage> TemplatePages { get; set; }

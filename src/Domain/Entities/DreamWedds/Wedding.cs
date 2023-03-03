@@ -36,7 +36,6 @@ namespace DreamWeddsManager.Domain.Entities.DreamWedds
         public string FbPageUrl { get; set; }
         [MaxLength(250)]
         public string VideoUrl { get; set; }
-    
         public virtual ICollection<BrideAndMaid> BrideAndMaids { get; set; }
         public virtual ICollection<GroomAndMan> GroomAndMen { get; set; }
         public virtual ICollection<RsvpDetail> RsvpDetails { get; set; }

@@ -42,6 +42,7 @@ namespace DreamWeddsManager.Infrastructure.Contexts
         #region Region | DreamWedds database entities
         public DbSet<BrideAndMaid> BrideAndMaid { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogComments> BlogComments { get; set; }
         public DbSet<Faq> Faqs { get; set; }
         public DbSet<GroomAndMan> GroomAndMan { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
@@ -50,6 +51,7 @@ namespace DreamWeddsManager.Infrastructure.Contexts
         public DbSet<SubscriptionMaster> SubscriptionMaster { get; set; }
         public DbSet<TemplateImage> TemplateImage { get; set; }
         public DbSet<TemplateMaster> TemplateMaster { get; set; }
+        public DbSet<TemplateComments> TemplateComments { get; set; }
         public DbSet<TemplateMergeField> TemplateMergeField { get; set; }
         public DbSet<TimeLine> TimeLine { get; set; }
         public DbSet<UserWeddingSubscription> UserWeddingSubscription { get; set; }
@@ -57,7 +59,8 @@ namespace DreamWeddsManager.Infrastructure.Contexts
         public DbSet<Wedding> Wedding { get; set; }
         public DbSet<WeddingEvent> WeddingEvent { get; set; }
         public DbSet<WeddingImages> WeddingImages { get; set; }
-      
+        public DbSet<MetaTags> MetaTags { get; set; }
+
         #endregion
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
