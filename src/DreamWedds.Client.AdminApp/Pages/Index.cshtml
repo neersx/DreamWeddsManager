@@ -1,0 +1,98 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].Property)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].TagPrefix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].PageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].PageTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].IsImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].TypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaTags[0].CreatedOn)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MetaTags) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Property)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TagPrefix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

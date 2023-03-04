@@ -19,6 +19,8 @@ namespace DreamWeddsManager.Application.Utilities
             public const string AboutUs = "ABOUT";
             public const string ContactUs = "CONTACT";
             public const string Faq = "FAQ";
+            public const string Blog = "BLOG";
+            public const string Template = "TEMPLATE";
         }
     }
 }

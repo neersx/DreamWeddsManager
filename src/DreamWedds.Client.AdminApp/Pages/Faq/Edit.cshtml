@@ -1,0 +1,86 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.Faq.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Faq</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Faq.Question" class="control-label"></label>
+                <input asp-for="Faq.Question" class="form-control" />
+                <span asp-validation-for="Faq.Question" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faq.Answer" class="control-label"></label>
+                <input asp-for="Faq.Answer" class="form-control" />
+                <span asp-validation-for="Faq.Answer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faq.Website" class="control-label"></label>
+                <input asp-for="Faq.Website" class="form-control" />
+                <span asp-validation-for="Faq.Website" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Faq.IsMainQue" /> @Html.DisplayNameFor(model => model.Faq.IsMainQue)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faq.ParentQuestionId" class="control-label"></label>
+                <input asp-for="Faq.ParentQuestionId" class="form-control" />
+                <span asp-validation-for="Faq.ParentQuestionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faq.Sequence" class="control-label"></label>
+                <input asp-for="Faq.Sequence" class="form-control" />
+                <span asp-validation-for="Faq.Sequence" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Faq.Id" />
+            <div class="form-group">
+                <label asp-for="Faq.CreatedBy" class="control-label"></label>
+                <input asp-for="Faq.CreatedBy" class="form-control" />
+                <span asp-validation-for="Faq.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faq.CreatedOn" class="control-label"></label>
+                <input asp-for="Faq.CreatedOn" class="form-control" />
+                <span asp-validation-for="Faq.CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faq.LastModifiedBy" class="control-label"></label>
+                <input asp-for="Faq.LastModifiedBy" class="form-control" />
+                <span asp-validation-for="Faq.LastModifiedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faq.LastModifiedOn" class="control-label"></label>
+                <input asp-for="Faq.LastModifiedOn" class="form-control" />
+                <span asp-validation-for="Faq.LastModifiedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Faq.IsDeleted" /> @Html.DisplayNameFor(model => model.Faq.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,104 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MetaTags</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.Property)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.Property)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.TagPrefix)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.TagPrefix)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.Content)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.Content)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.PageName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.PageName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.PageTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.PageTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.IsImage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.IsImage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.TypeId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.TypeId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.CreatedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.CreatedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.CreatedOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.CreatedOn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.LastModifiedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.LastModifiedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.LastModifiedOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.LastModifiedOn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaTags.IsDeleted)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaTags.IsDeleted)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.MetaTags?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

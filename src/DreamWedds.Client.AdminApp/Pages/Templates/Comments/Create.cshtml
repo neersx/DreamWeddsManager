@@ -1,0 +1,94 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.Templates.Comments.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TemplateComments</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.Comment" class="control-label"></label>
+                <input asp-for="TemplateComments.Comment" class="form-control" />
+                <span asp-validation-for="TemplateComments.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.TemplateId" class="control-label"></label>
+                <select asp-for="TemplateComments.TemplateId" class ="form-control" asp-items="ViewBag.TemplateId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.UserId" class="control-label"></label>
+                <input asp-for="TemplateComments.UserId" class="form-control" />
+                <span asp-validation-for="TemplateComments.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.Image" class="control-label"></label>
+                <input asp-for="TemplateComments.Image" class="form-control" />
+                <span asp-validation-for="TemplateComments.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TemplateComments.IsHtml" /> @Html.DisplayNameFor(model => model.TemplateComments.IsHtml)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.Date" class="control-label"></label>
+                <input asp-for="TemplateComments.Date" class="form-control" />
+                <span asp-validation-for="TemplateComments.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TemplateComments.IsApproved" /> @Html.DisplayNameFor(model => model.TemplateComments.IsApproved)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.Icon" class="control-label"></label>
+                <input asp-for="TemplateComments.Icon" class="form-control" />
+                <span asp-validation-for="TemplateComments.Icon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.CreatedBy" class="control-label"></label>
+                <input asp-for="TemplateComments.CreatedBy" class="form-control" />
+                <span asp-validation-for="TemplateComments.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.CreatedOn" class="control-label"></label>
+                <input asp-for="TemplateComments.CreatedOn" class="form-control" />
+                <span asp-validation-for="TemplateComments.CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.LastModifiedBy" class="control-label"></label>
+                <input asp-for="TemplateComments.LastModifiedBy" class="form-control" />
+                <span asp-validation-for="TemplateComments.LastModifiedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateComments.LastModifiedOn" class="control-label"></label>
+                <input asp-for="TemplateComments.LastModifiedOn" class="form-control" />
+                <span asp-validation-for="TemplateComments.LastModifiedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TemplateComments.IsDeleted" /> @Html.DisplayNameFor(model => model.TemplateComments.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

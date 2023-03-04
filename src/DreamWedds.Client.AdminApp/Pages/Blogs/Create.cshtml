@@ -1,0 +1,100 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.Blogs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Blog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Blog.BlogName" class="control-label"></label>
+                <input asp-for="Blog.BlogName" class="form-control" />
+                <span asp-validation-for="Blog.BlogName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.Title" class="control-label"></label>
+                <input asp-for="Blog.Title" class="form-control" />
+                <span asp-validation-for="Blog.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.BlogSubject" class="control-label"></label>
+                <input asp-for="Blog.BlogSubject" class="form-control" />
+                <span asp-validation-for="Blog.BlogSubject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.Quote" class="control-label"></label>
+                <input asp-for="Blog.Quote" class="form-control" />
+                <span asp-validation-for="Blog.Quote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.AuthorName" class="control-label"></label>
+                <input asp-for="Blog.AuthorName" class="form-control" />
+                <span asp-validation-for="Blog.AuthorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.Content" class="control-label"></label>
+                <input asp-for="Blog.Content" class="form-control" />
+                <span asp-validation-for="Blog.Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.ImageUrl" class="control-label"></label>
+                <input asp-for="Blog.ImageUrl" class="form-control" />
+                <span asp-validation-for="Blog.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.BlogType" class="control-label"></label>
+                <input asp-for="Blog.BlogType" class="form-control" />
+                <span asp-validation-for="Blog.BlogType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.SpecialNote" class="control-label"></label>
+                <input asp-for="Blog.SpecialNote" class="form-control" />
+                <span asp-validation-for="Blog.SpecialNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.CreatedBy" class="control-label"></label>
+                <input asp-for="Blog.CreatedBy" class="form-control" />
+                <span asp-validation-for="Blog.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.CreatedOn" class="control-label"></label>
+                <input asp-for="Blog.CreatedOn" class="form-control" />
+                <span asp-validation-for="Blog.CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.LastModifiedBy" class="control-label"></label>
+                <input asp-for="Blog.LastModifiedBy" class="form-control" />
+                <span asp-validation-for="Blog.LastModifiedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.LastModifiedOn" class="control-label"></label>
+                <input asp-for="Blog.LastModifiedOn" class="form-control" />
+                <span asp-validation-for="Blog.LastModifiedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Blog.IsDeleted" /> @Html.DisplayNameFor(model => model.Blog.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,130 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.Templates.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TemplateMaster</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.Name" class="control-label"></label>
+                <input asp-for="TemplateMaster.Name" class="form-control" />
+                <span asp-validation-for="TemplateMaster.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.Type" class="control-label"></label>
+                <input asp-for="TemplateMaster.Type" class="form-control" />
+                <span asp-validation-for="TemplateMaster.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.Status" class="control-label"></label>
+                <input asp-for="TemplateMaster.Status" class="form-control" />
+                <span asp-validation-for="TemplateMaster.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.Content" class="control-label"></label>
+                <input asp-for="TemplateMaster.Content" class="form-control" />
+                <span asp-validation-for="TemplateMaster.Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.Subject" class="control-label"></label>
+                <input asp-for="TemplateMaster.Subject" class="form-control" />
+                <span asp-validation-for="TemplateMaster.Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.Tags" class="control-label"></label>
+                <input asp-for="TemplateMaster.Tags" class="form-control" />
+                <span asp-validation-for="TemplateMaster.Tags" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.TemplateUrl" class="control-label"></label>
+                <input asp-for="TemplateMaster.TemplateUrl" class="form-control" />
+                <span asp-validation-for="TemplateMaster.TemplateUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.TemplateFolderPath" class="control-label"></label>
+                <input asp-for="TemplateMaster.TemplateFolderPath" class="form-control" />
+                <span asp-validation-for="TemplateMaster.TemplateFolderPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.ThumbnailImageUrl" class="control-label"></label>
+                <input asp-for="TemplateMaster.ThumbnailImageUrl" class="form-control" />
+                <span asp-validation-for="TemplateMaster.ThumbnailImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.TagLine" class="control-label"></label>
+                <input asp-for="TemplateMaster.TagLine" class="form-control" />
+                <span asp-validation-for="TemplateMaster.TagLine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.Cost" class="control-label"></label>
+                <input asp-for="TemplateMaster.Cost" class="form-control" />
+                <span asp-validation-for="TemplateMaster.Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.AuthorName" class="control-label"></label>
+                <input asp-for="TemplateMaster.AuthorName" class="form-control" />
+                <span asp-validation-for="TemplateMaster.AuthorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.AboutTemplate" class="control-label"></label>
+                <input asp-for="TemplateMaster.AboutTemplate" class="form-control" />
+                <span asp-validation-for="TemplateMaster.AboutTemplate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.Features" class="control-label"></label>
+                <input asp-for="TemplateMaster.Features" class="form-control" />
+                <span asp-validation-for="TemplateMaster.Features" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.TemplateCode" class="control-label"></label>
+                <input asp-for="TemplateMaster.TemplateCode" class="form-control" />
+                <span asp-validation-for="TemplateMaster.TemplateCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.CreatedBy" class="control-label"></label>
+                <input asp-for="TemplateMaster.CreatedBy" class="form-control" />
+                <span asp-validation-for="TemplateMaster.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.CreatedOn" class="control-label"></label>
+                <input asp-for="TemplateMaster.CreatedOn" class="form-control" />
+                <span asp-validation-for="TemplateMaster.CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.LastModifiedBy" class="control-label"></label>
+                <input asp-for="TemplateMaster.LastModifiedBy" class="form-control" />
+                <span asp-validation-for="TemplateMaster.LastModifiedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateMaster.LastModifiedOn" class="control-label"></label>
+                <input asp-for="TemplateMaster.LastModifiedOn" class="form-control" />
+                <span asp-validation-for="TemplateMaster.LastModifiedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TemplateMaster.IsDeleted" /> @Html.DisplayNameFor(model => model.TemplateMaster.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

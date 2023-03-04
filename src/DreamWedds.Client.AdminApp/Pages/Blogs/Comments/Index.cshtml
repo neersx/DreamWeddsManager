@@ -1,0 +1,109 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.Blogs.Comments.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].IsHtml)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].IsApproved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].Icon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].Blog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].LastModifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].LastModifiedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogComments[0].IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BlogComments) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsHtml)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsApproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blog.BlogName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

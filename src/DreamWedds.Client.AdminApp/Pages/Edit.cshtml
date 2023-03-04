@@ -1,0 +1,101 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>MetaTags</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MetaTags.Name" class="control-label"></label>
+                <input asp-for="MetaTags.Name" class="form-control" />
+                <span asp-validation-for="MetaTags.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.Property" class="control-label"></label>
+                <input asp-for="MetaTags.Property" class="form-control" />
+                <span asp-validation-for="MetaTags.Property" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.TagPrefix" class="control-label"></label>
+                <input asp-for="MetaTags.TagPrefix" class="form-control" />
+                <span asp-validation-for="MetaTags.TagPrefix" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.Content" class="control-label"></label>
+                <input asp-for="MetaTags.Content" class="form-control" />
+                <span asp-validation-for="MetaTags.Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.PageName" class="control-label"></label>
+                <input asp-for="MetaTags.PageName" class="form-control" />
+                <span asp-validation-for="MetaTags.PageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.PageTitle" class="control-label"></label>
+                <input asp-for="MetaTags.PageTitle" class="form-control" />
+                <span asp-validation-for="MetaTags.PageTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MetaTags.IsImage" /> @Html.DisplayNameFor(model => model.MetaTags.IsImage)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.Type" class="control-label"></label>
+                <input asp-for="MetaTags.Type" class="form-control" />
+                <span asp-validation-for="MetaTags.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.TypeId" class="control-label"></label>
+                <input asp-for="MetaTags.TypeId" class="form-control" />
+                <span asp-validation-for="MetaTags.TypeId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="MetaTags.Id" />
+            <div class="form-group">
+                <label asp-for="MetaTags.CreatedBy" class="control-label"></label>
+                <input asp-for="MetaTags.CreatedBy" class="form-control" />
+                <span asp-validation-for="MetaTags.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.CreatedOn" class="control-label"></label>
+                <input asp-for="MetaTags.CreatedOn" class="form-control" />
+                <span asp-validation-for="MetaTags.CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.LastModifiedBy" class="control-label"></label>
+                <input asp-for="MetaTags.LastModifiedBy" class="form-control" />
+                <span asp-validation-for="MetaTags.LastModifiedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTags.LastModifiedOn" class="control-label"></label>
+                <input asp-for="MetaTags.LastModifiedOn" class="form-control" />
+                <span asp-validation-for="MetaTags.LastModifiedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MetaTags.IsDeleted" /> @Html.DisplayNameFor(model => model.MetaTags.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

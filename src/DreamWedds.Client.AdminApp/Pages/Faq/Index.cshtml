@@ -1,0 +1,97 @@
+﻿@page
+@model DreamWedds.Client.AdminApp.Pages.Faq.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].IsMainQue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].ParentQuestionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].Sequence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].LastModifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].LastModifiedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faq[0].IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Faq) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsMainQue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentQuestionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sequence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

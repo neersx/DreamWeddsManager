@@ -49,6 +49,8 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamWedds.Client.WebApp", "src\DreamWedds.Client.WebApp\DreamWedds.Client.WebApp.csproj", "{4D34BD51-5F20-4CA2-A43E-E0BEBC23342C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamWedds.Client.AdminApp", "src\DreamWedds.Client.AdminApp\DreamWedds.Client.AdminApp.csproj", "{1DC1A77E-D54F-417D-AB00-042F51675DCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +96,10 @@ Global
 		{4D34BD51-5F20-4CA2-A43E-E0BEBC23342C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D34BD51-5F20-4CA2-A43E-E0BEBC23342C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D34BD51-5F20-4CA2-A43E-E0BEBC23342C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC1A77E-D54F-417D-AB00-042F51675DCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC1A77E-D54F-417D-AB00-042F51675DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC1A77E-D54F-417D-AB00-042F51675DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC1A77E-D54F-417D-AB00-042F51675DCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{6B3A1D03-E35E-4579-A24A-E3343D024B4B} = {885BB018-5B07-4038-B061-71B70188933B}
 		{BFAD2E2A-8C7C-4357-9C81-D2ECDEEFC0F1} = {39A93E2F-51DE-47C0-93AF-A24561630C18}
 		{4D34BD51-5F20-4CA2-A43E-E0BEBC23342C} = {885BB018-5B07-4038-B061-71B70188933B}
+		{1DC1A77E-D54F-417D-AB00-042F51675DCC} = {885BB018-5B07-4038-B061-71B70188933B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED3E6669-AEC5-4A3B-9E57-2A81DE87BAAF}
