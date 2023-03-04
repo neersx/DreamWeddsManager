@@ -1,19 +1,10 @@
 using AutoMapper;
-using DreamWeddsManager.Application.Enums;
-using DreamWeddsManager.Application.Features.Brands.Queries.GetAll;
 using DreamWeddsManager.Application.Interfaces.Repositories;
-using DreamWeddsManager.Domain.Entities.Catalog;
 using DreamWeddsManager.Domain.Entities.DreamWedds;
 using DreamWeddsManager.Shared.Constants.Application;
 using DreamWeddsManager.Shared.Wrapper;
 using LazyCache;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DreamWeddsManager.Application.Features.Blogs.Queries
 {

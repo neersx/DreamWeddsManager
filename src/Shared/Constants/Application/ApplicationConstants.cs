@@ -26,6 +26,7 @@
             public const string GetAllBrandsCacheKey = "all-brands";
             public const string GetAllTemplatesCacheKey = "all-templates";
             public const string GetAllBlogsCacheKey = "all-blogs";
+            public const string GetAllMetaTagsCacheKey = "all-meta-tags"; // all meta tags for pages i.e. home, about, etc
             public const string GetAllFaqCacheKey = "all-faqs";
             public const string GetAllWeddingsCacheKey = "all-weddings";
             public const string GetAllDocumentTypesCacheKey = "all-document-types";

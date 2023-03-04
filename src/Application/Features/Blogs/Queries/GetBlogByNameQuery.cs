@@ -1,9 +1,11 @@
 using AutoMapper;
 using DreamWeddsManager.Application.Features.Blogs.Queries;
+using DreamWeddsManager.Application.Features.Common.Queries;
 using DreamWeddsManager.Application.Interfaces.Repositories;
 using DreamWeddsManager.Domain.Entities.DreamWedds;
 using DreamWeddsManager.Shared.Wrapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +36,7 @@ namespace DreamWeddsManager.Application.Features.Blogs.Queries
 
         public async Task<Result<GetBlogByIdResponse>> Handle(GetBlogByNameQuery query, CancellationToken cancellationToken)
         {
-            var Blog = await _unitOfWork.Repository<Blog>().FindByAsync(name => name.BlogName == query.Name);
+            var Blog = await _unitOfWork.Repository<Blog>().Entities.Include(x =>x.MetaTags).Include(x =>x.Comments).FirstAsync(name => name.BlogName == query.Name);
             var mappedBlog = _mapper.Map<GetBlogByIdResponse>(Blog);
             return await Result<GetBlogByIdResponse>.SuccessAsync(mappedBlog);
         }
@@ -52,6 +54,7 @@ namespace DreamWeddsManager.Application.Features.Blogs.Queries
         public int BlogType { get; set; } = 0;
         public string SpecialNote { get; set; }
         public DateTime CreatedOn { get; set; }
+        public ICollection<GetAllMetaTagsResponse> MetaTags { get; set; }
     }
 
 }

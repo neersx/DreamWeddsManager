@@ -22,6 +22,6 @@ namespace DreamWeddsManager.Domain.Entities.DreamWedds
         public bool IsApproved { get; set;} = false;
         [MaxLength(500)]
         public string Icon { get; set; }
-        public virtual TemplateMaster TemplateMaster { get; set; }  
+        public virtual TemplateMaster Template { get; set; }  
     }
 }

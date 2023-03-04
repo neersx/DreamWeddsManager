@@ -1,8 +1,7 @@
-﻿using DreamWeddsManager.Application.Features.Brands.Queries.GetAll;
+﻿using DreamWeddsManager.Application.Extensions;
+using DreamWeddsManager.Application.Features.Common.Queries;
 using DreamWeddsManager.Application.Features.Templates.Queries;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using DreamWeddsManager.Application.Utilities;
 
 namespace DreamWedds.Client.WebApp.Pages
 {
@@ -13,16 +12,10 @@ namespace DreamWedds.Client.WebApp.Pages
         {
             var Templates = await _mediator.Send(new GetAllTemplatesQuery());
             ViewData["Templates"] = Templates.Data.ToList().Take(4);
-            ViewData["LoadMetaTag"] = BindMetaTag();
-            
-        }
 
-        private string BindMetaTag()
-        {
-            System.Text.StringBuilder strDynamicMetaTag = new System.Text.StringBuilder();
-            strDynamicMetaTag.AppendFormat(@"<meta content='{0}' name='Keywords'/>", "Dotnet-helpers");
-            strDynamicMetaTag.AppendFormat(@"<meta content='{0}' name='Descption'/>", "creating meta tags dynamically in" + " asp.net mvc by dotnet-helpers.com");
-            return strDynamicMetaTag.ToString();
+            var MetaTags = await _mediator.Send(new GetAllMetaTagsByPageNameQuery(KnownValues.KnownHtmlPage.Home));
+            string MetagTagsString = HtmlPageExtensions.GetMetadataString(MetaTags.Data) ;
+            ViewData["LoadMetaTag"] = MetagTagsString;
         }
     }
 }

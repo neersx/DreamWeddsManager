@@ -1,14 +1,4 @@
 ﻿<meta charset="utf-8">
-<title>
-    @if (ViewBag.Title?.Length > 0)
-    {
-        <text>@ViewData["Title"] @(ViewData["Category1"] != null ? (" - " + ViewData["Category1"]) : "") - | DreamWedds App</text>
-    }
-    else
-    {
-
-    }
-</title>
 
 <base href="~/" />
 <meta name="description" content="@ViewBag.Title">
@@ -16,7 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="msapplication-tap-highlight" content="no">
+@Html.Raw(ViewData["LoadMetaTag"])
+<partial name="_Favicon" />
+<title>
+    @if (ViewBag.Title?.Length > 0)
+    {
+        <text>@ViewData["Title"] @(ViewData["Category1"] != null ? (" - " + ViewData["Category1"]) : "") | Your Wedding Website | DreamWedds</text>
+    }
+    else
+    {
 
+    }
+</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
@@ -26,5 +27,4 @@
 <!-- Theme CSS -->
 <link type="text/css" href="~/assets/css/soft-design-system-pro.min.css" rel="stylesheet">
 <link id="vendorsbundle" rel="stylesheet" media="screen, print" href="~/">
-<partial name="_Favicon" />
- @Html.Raw(ViewData["LoadMetaTag"])
+
