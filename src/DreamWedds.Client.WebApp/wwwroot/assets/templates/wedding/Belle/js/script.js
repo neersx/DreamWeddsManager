@@ -207,7 +207,7 @@
         = BIGDAY COUNTDOWN
     -------------------------------------------*/
     if ($("#clock").length) {
-        $('#clock').countdown('2017/12/31', function(event) {
+        $('#clock').countdown('2023/04/31', function(event) {
             var $this = $(this).html(event.strftime(''
             + '<div class="box"><div>%D</div> <span>Days</span> </div>'
             + '<div class="box"><div>%H</div> <span>Hours</span> </div>'
