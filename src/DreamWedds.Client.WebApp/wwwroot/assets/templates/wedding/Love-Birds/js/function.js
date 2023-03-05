@@ -58,15 +58,15 @@ var fullDate = new Date()
 var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
  
 //today = fullDate.getDate() + "/" + twoDigitMonth + "/" + //fullDate.getFullYear();
-
-    var target = new Date("February 05, 2019 20:00:00");
+// set wedding date
+    var target = new Date("December 31, 2023 20:00:00");
 // Set no. of days from today - Wedding Date - Neeraj Singh
     target.setDate(target.getDate()); 
 	
     target.setHours(0, 0, 0, 0);
 	
     // Countdown start from yesterday
-    var yesterday = new Date("November 30, 2016 19:24:00");
+    var yesterday = new Date();
     yesterday.setDate(yesterday.getDate()); // Day counter will start from yesteday
     yesterday.setHours(0, 0, 0, 0);
 	
@@ -95,7 +95,7 @@ var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()
     /*Timer for wedding page*/
 		if($.find('#example').length){
     $('#example').countdown({
-        date: '05/02/2017 0:0:0',
+        date: '31/12/2023 0:0:0',
         offset: +5.30,
         day: 'Day',
         days: 'Days'

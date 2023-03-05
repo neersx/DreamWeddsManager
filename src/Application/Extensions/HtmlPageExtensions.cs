@@ -12,17 +12,22 @@ namespace DreamWeddsManager.Application.Extensions
             if (!string.IsNullOrWhiteSpace(title))
             {
                 metadata +=
-                   $"<meta name=\"twitter:title\" content=\" {title}\">{Environment.NewLine}";
-                metadata += $"<meta property=\"og:title\" content=\" {title}\">{Environment.NewLine}";
+                    $"<meta name=\"twitter:title\" content=\" {title}\">{Environment.NewLine}";
+                metadata +=
+                    $"<meta property=\"og:title\" content=\" {title}\">{Environment.NewLine}";
                 metadata += $"<title>{title}</title>{Environment.NewLine}";
             }
             foreach (var item in list)
             {
-                if (item.TagPrefix == KnownValues.KnownTagPrefix.Title && string.IsNullOrWhiteSpace(title))
+                if (
+                    item.TagPrefix == KnownValues.KnownTagPrefix.Title
+                    && string.IsNullOrWhiteSpace(title)
+                )
                 {
                     metadata +=
                         $"<meta name=\"twitter:title\" content=\" {item.Content}\">{Environment.NewLine}";
-                    metadata += $"<meta property=\"og:title\" content=\" {item.Content}\">{Environment.NewLine}";
+                    metadata +=
+                        $"<meta property=\"og:title\" content=\" {item.Content}\">{Environment.NewLine}";
                     metadata += $"<title>{item.Content}</title>{Environment.NewLine}";
                 }
 
@@ -36,7 +41,7 @@ namespace DreamWeddsManager.Application.Extensions
                     metadata +=
                         $"<meta property=\"{item.Property}\" content=\"{item.Content}\">{Environment.NewLine}";
                     metadata +=
-                        $"<meta property=\"og:image:width\" content=\"800\">{Environment.NewLine}";
+                        $"<meta property=\"og:image:width\" content=\"1000\">{Environment.NewLine}";
                     metadata +=
                         $"<meta property=\"og:image:height\" content=\"500\">{Environment.NewLine}";
                 }
@@ -45,8 +50,10 @@ namespace DreamWeddsManager.Application.Extensions
                 {
                     metadata +=
                         $"<meta name=\"twitter:description\" content=\" {item.Content}\">{Environment.NewLine}";
-                    metadata += $"<meta property=\"og:description\" content=\" {item.Content}\"{Environment.NewLine}>";
-                    metadata += $"<meta name=\"description\" content=\"{item.Content}\">{Environment.NewLine}";
+                    metadata +=
+                        $"<meta property=\"og:description\" content=\" {item.Content}\"{Environment.NewLine}>";
+                    metadata +=
+                        $"<meta name=\"description\" content=\"{item.Content}\">{Environment.NewLine}";
                 }
 
                 if (item.TagPrefix == KnownValues.KnownTagPrefix.Keywords)
@@ -62,7 +69,6 @@ namespace DreamWeddsManager.Application.Extensions
                     metadata +=
                         $"<meta name=\"{item.Name}\" content=\"{item.Content}\">{Environment.NewLine}";
                 }
-
             }
 
             if (!metadata.Contains("twitter:site"))
@@ -73,15 +79,15 @@ namespace DreamWeddsManager.Application.Extensions
                     $"<meta name=\"og:site_name\" content=\"Dream Wedds | Your personal wedding website\">{Environment.NewLine}";
             }
 
-            metadata +=
-                $"<meta name=\"twitter:card\" content=\"summary_large_image\">{Environment.NewLine}";
-            metadata +=
-                $"<meta property=\"og:type\" content=\"article\">{Environment.NewLine}";
-            metadata += $"<meta name=\"robots\" content=\"max-image-preview:large\">{Environment.NewLine}";    
-            metadata += $"<meta property=\"article:tag\" content=\"Elegance, Beautiful Woman, Bridal Lehanga, Dream Wedding, Culture, Wedding Website, Beautiful Wedding Images, India, Ornamented, Square Format Image, Tradition, Wedding, Wedding Dress, Online Wedding, Personal Wedding Website\">";    
-
+            metadata += $"<link rel=\"canonical\" href=\"https:dreamwedds.com\">{Environment.NewLine}";
+            metadata += $"<meta name=\"twitter:card\" content=\"summary_large_image\">{Environment.NewLine}";
+            metadata += $"<meta property=\"og:type\" content=\"article\">{Environment.NewLine}";
+            metadata += $"<meta name=\"robots\" content=\"max-image-preview:large\">{Environment.NewLine}";
+            metadata += $"<meta name=\"og:locale\" content=\"en-US\">{Environment.NewLine}";
+            metadata += $"<meta name=\"og:type\" content=\"website\">{Environment.NewLine}";
+            metadata += $"<meta property=\"article:tag\" content=\"Elegance, Beautiful Woman, Bridal Lehanga, Dream Wedding, Culture, Wedding Website, Beautiful Wedding Images, India, Ornamented, Square Format Image, Tradition, Wedding, Wedding Dress, Online Wedding, Personal Wedding Website\">";
+            metadata += $"<meta name=\"og:url\" content=\"https:dreamwedds.com\">{Environment.NewLine}";
             return metadata;
         }
-
     }
 }

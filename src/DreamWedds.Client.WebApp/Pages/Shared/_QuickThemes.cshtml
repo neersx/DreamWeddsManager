@@ -36,7 +36,6 @@
                             {
                                 <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">@tag • </span>
                             }
-                          
                             <br>
                             <h4>@item.Name</h4>
                             <p style="font-size:small">
@@ -45,12 +44,12 @@
                             <div class="row justify-content-center text-center">
                                 <div class="col-lg-6 col-6">
 
-                                    <a type="button" href="@item.TemplateUrl" class="btn btn-sm btn-outline-primary">
+                                    <a href="@item.TemplateUrl" class="btn btn-sm btn-outline-primary">
                                         <span class="btn-inner--text">Demo</span>
                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-6">
-                                    <a type="button" asp-page="/Themes/Weddings/Details" asp-route-name="@item.Name.ToLower().Replace(' ', '-')" class="btn btn-sm bg-gradient-primary">BUY</a>
+                                    <a asp-page="/Themes/Weddings/Details" asp-route-name="@item.Name.ToLower().Replace(' ', '-')" class="btn btn-sm bg-gradient-primary">BUY</a>
                                 </div>
                             </div>
                         </div>
