@@ -118,8 +118,8 @@
 		});
 
 		
-		/*CountDown*/
-		$('.married_coundown').countdown({until: new Date(2016, 12, 19)});
+		/*CountDown - Set Wedding Date Here*/
+		$('.married_coundown').countdown({until: new Date(2023, 12, 31)});
 		
 		/*OWL Carousel in Our Story*/
 		$(".story_wrapper").owlCarousel({
