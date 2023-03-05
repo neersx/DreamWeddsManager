@@ -14,17 +14,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Blog[0].BlogName)
-            </th>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Blog[0].BlogSubject)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Blog[0].Quote)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].AuthorName)
@@ -33,66 +25,34 @@
                 @Html.DisplayNameFor(model => model.Blog[0].ImageUrl)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Blog[0].BlogType)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Blog[0].SpecialNote)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Blog[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Blog[0].CreatedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Blog[0].IsDeleted)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Blog) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogSubject)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuthorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+        @foreach (var item in Model.Blog)
+        {
+            <tr>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
                     <img src="@Url.Content(item.ImageUrl)" height="50px" alt="Image" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpecialNote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedOn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsDeleted)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecialNote)
+                </td>
+
+            </tr>
+        }
     </tbody>
 </table>

@@ -18,21 +18,6 @@
                 @Html.DisplayNameFor(model => model.TemplateMaster[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].Subject)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].Tags)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.TemplateMaster[0].TemplateUrl) <a href="Model.Templ"></a>
             </th>
             <th>
@@ -42,34 +27,7 @@
                 @Html.DisplayNameFor(model => model.TemplateMaster[0].ThumbnailImageUrl)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].TagLine)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.TemplateMaster[0].Cost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].AuthorName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].Features)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].TemplateCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].CreatedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].LastModifiedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].LastModifiedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemplateMaster[0].IsDeleted)
             </th>
             <th></th>
         </tr>
@@ -79,21 +37,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subject)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tags)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TemplateUrl)
@@ -106,32 +49,9 @@
                     <img src="@Url.Content(item.ThumbnailImageUrl)" height="50px" alt="Image" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TagLine)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuthorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Features)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TemplateCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedOn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastModifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastModifiedOn)
-            </td>
+    
             <td>
                 @Html.DisplayFor(modelItem => item.IsDeleted)
             </td>
