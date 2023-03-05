@@ -359,7 +359,7 @@ p{
   
 }
 .slider-area .carousel-fade .carousel-inner .item:after {
-	background: rgba(0,0,0,.7);
+	background: rgba(0,0,0,.4);
 	bottom: 0;
 	content: " ";
 	left: 0;

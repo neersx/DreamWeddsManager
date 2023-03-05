@@ -35,11 +35,11 @@ $(function() {
 	});
 
 	/*==============================================
-	COUNTDOWN
+	COUNTDOWN // set your wedding date here
 	===============================================*/
 	if ($("#countdown").length) {
 		$("#countdown").countdown({
-			until : new Date(2020, 6-1, 19)
+			until : new Date(2023, 12-1, 31)
 			//http://keith-wood.name/countdown.html
 		});
 	}

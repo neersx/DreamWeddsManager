@@ -31,7 +31,14 @@ namespace DreamWeddsManager.Application.Extensions
                     metadata +=
                         $"<meta name=\"{item.Name}\" content=\"{item.Content}\">{Environment.NewLine}";
                     metadata +=
+                        $"<meta name=\"twitter:card\" content=\"summary_large_image\">{Environment.NewLine}";
+
+                    metadata +=
                         $"<meta property=\"{item.Property}\" content=\"{item.Content}\">{Environment.NewLine}";
+                    metadata +=
+                        $"<meta property=\"og:image:width\" content=\"800\">{Environment.NewLine}";
+                    metadata +=
+                        $"<meta property=\"og:image:height\" content=\"500\">{Environment.NewLine}";
                 }
 
                 if (item.TagPrefix == KnownValues.KnownTagPrefix.Description)
@@ -63,13 +70,15 @@ namespace DreamWeddsManager.Application.Extensions
                 metadata +=
                     $"<meta property=\"twitter:site\" content=\"@thedreamwedds\">{Environment.NewLine}";
                 metadata +=
-                    $"<meta name=\"og:site_name\" content=\"Dream Wedds\">{Environment.NewLine}";
+                    $"<meta name=\"og:site_name\" content=\"Dream Wedds | Your personal wedding website\">{Environment.NewLine}";
             }
 
             metadata +=
                 $"<meta name=\"twitter:card\" content=\"summary_large_image\">{Environment.NewLine}";
             metadata +=
                 $"<meta property=\"og:type\" content=\"article\">{Environment.NewLine}";
+            metadata += $"<meta name=\"robots\" content=\"max-image-preview:large\">{Environment.NewLine}";    
+            metadata += $"<meta property=\"article:tag\" content=\"Elegance, Beautiful Woman, Bridal Lehanga, Dream Wedding, Culture, Wedding Website, Beautiful Wedding Images, India, Ornamented, Square Format Image, Tradition, Wedding, Wedding Dress, Online Wedding, Personal Wedding Website\">";    
 
             return metadata;
         }
