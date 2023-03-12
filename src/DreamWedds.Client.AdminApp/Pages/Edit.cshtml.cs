@@ -8,14 +8,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DreamWedds.Client.AdminApp.Data;
 using DreamWeddsManager.Domain.Entities.DreamWedds;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DreamWedds.Client.AdminApp.Pages
 {
     public class EditModel : PageModel
     {
-        private readonly DreamWedds.Client.AdminApp.Data.ApplicationDbContext _context;
+        [BindProperty]
+        public AddEditMetatagCommand Input { get; set; }
+        [BindProperty]
+        public IFormFile UploadedFile { get; set; }
 
-        public EditModel(DreamWedds.Client.AdminApp.Data.ApplicationDbContext context)
+        private readonly ApplicationDbContext _context;
+
+        public EditModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -48,6 +55,16 @@ namespace DreamWedds.Client.AdminApp.Pages
                 return Page();
             }
 
+            if (UploadedFile != null)
+            {
+                Input.UploadRequest = new UploadRequest();
+                Input.UploadRequest.FileName = UploadedFile.FileName;
+                Input.UploadRequest.UploadType = UploadType.Document;
+                var stream = new MemoryStream();
+                UploadedFile.CopyTo(stream);
+                Input.UploadRequest.Data = stream.ToArray();
+            }
+
             _context.Attach(MetaTags).State = EntityState.Modified;
 
             try
@@ -73,5 +90,46 @@ namespace DreamWedds.Client.AdminApp.Pages
         {
           return (_context.MetaTags?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+    }
+
+    public class AddEditMetatagCommand 
+    {
+        public string Name { get; set; }
+        [MaxLength(50)]
+        public string Property { get; set; }
+        [MaxLength(20)]
+        public string TagPrefix { get; set; } // fb, og, twitter
+        public string Content { get; set; }
+        [MaxLength(200)]
+        public string PageName { get; set; }
+        [MaxLength(250)]
+        public string PageTitle { get; set; }
+        public bool IsImage { get; set; }
+        [MaxLength(20)]
+        public string Type { get; set; } // meta, stylesheet, preload, dns-prefetch 
+        public string TypeId { get; set; } // id if link type
+        public UploadRequest UploadRequest { get; set; }
+    }
+    public class UploadRequest
+    {
+        public string FileName { get; set; }
+        public string Extension { get; set; }
+        public UploadType UploadType { get; set; }
+        public string Folder { get; set; }
+        public byte[] Data { get; set; }
+
+        public bool Overwrite { get; set; } = false;
+    }
+
+    public enum UploadType : byte
+    {
+        [Description(@"Products")]
+        Product,
+        [Description(@"ProfilePictures")]
+        ProfilePicture,
+        [Description(@"Documents")]
+        Document,
+        [Description(@"Invoice")]
+        Invoice
     }
 }
