@@ -10,6 +10,8 @@ using DreamWedds.Client.AdminApp.Data;
 using DreamWeddsManager.Domain.Entities.DreamWedds;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using DreamWeddsManager.Application.Requests;
+using DreamWeddsManager.Application.Enums;
 
 namespace DreamWedds.Client.AdminApp.Pages
 {
@@ -30,20 +32,11 @@ namespace DreamWedds.Client.AdminApp.Pages
         [BindProperty]
         public MetaTags MetaTags { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task OnGetAsync(int? id)
         {
-            if (id == null || _context.MetaTags == null)
-            {
-                return NotFound();
-            }
 
             var metatags =  await _context.MetaTags.FirstOrDefaultAsync(m => m.Id == id);
-            if (metatags == null)
-            {
-                return NotFound();
-            }
             MetaTags = metatags;
-            return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -94,6 +87,7 @@ namespace DreamWedds.Client.AdminApp.Pages
 
     public class AddEditMetatagCommand 
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         [MaxLength(50)]
         public string Property { get; set; }
@@ -109,27 +103,5 @@ namespace DreamWedds.Client.AdminApp.Pages
         public string Type { get; set; } // meta, stylesheet, preload, dns-prefetch 
         public string TypeId { get; set; } // id if link type
         public UploadRequest UploadRequest { get; set; }
-    }
-    public class UploadRequest
-    {
-        public string FileName { get; set; }
-        public string Extension { get; set; }
-        public UploadType UploadType { get; set; }
-        public string Folder { get; set; }
-        public byte[] Data { get; set; }
-
-        public bool Overwrite { get; set; } = false;
-    }
-
-    public enum UploadType : byte
-    {
-        [Description(@"Products")]
-        Product,
-        [Description(@"ProfilePictures")]
-        ProfilePicture,
-        [Description(@"Documents")]
-        Document,
-        [Description(@"Invoice")]
-        Invoice
     }
 }

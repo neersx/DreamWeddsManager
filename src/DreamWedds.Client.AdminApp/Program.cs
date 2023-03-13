@@ -1,4 +1,6 @@
 using DreamWedds.Client.AdminApp.Data;
+using DreamWeddsManager.Application.Interfaces.Services;
+using DreamWeddsManager.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+
+builder.Services.AddTransient<IUploadService, UploadService>();
 
 var app = builder.Build();
 
