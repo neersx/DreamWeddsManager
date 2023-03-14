@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\DreamWeddsManager.Application.csproj" />
     <ProjectReference Include="..\Domain\DreamWeddsManager.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\DreamWeddsManager.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
